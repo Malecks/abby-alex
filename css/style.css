@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Bastia';
-  src: url('fonts/Bastia-Bold.woff2') format('woff2'),
-      url('fonts/Bastia-Bold.woff') format('woff');
+  src: url(fonts/Bastia-Bold.woff2) format('woff2'),
+      url(fonts/Bastia-Bold.woff) format('woff');
 }
 
 * {
