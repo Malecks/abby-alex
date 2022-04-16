@@ -4,6 +4,13 @@
       url(fonts/Bastia-Bold.woff) format('woff');
 }
 
+@font-face {
+  font-family: myFirstFont;
+  src: url(fonts/Bastia-Bold.woff2) format('woff2'),
+      url(fonts/Bastia-Bold.woff) format('woff');
+  font-weight: bold;
+}
+
 * {
     padding: 0;
     margin: 0;
