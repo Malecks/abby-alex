@@ -49,6 +49,7 @@ header {
 
 h1, h2, h3 {
   font-family: 'Bastia';
+  font-kerning: normal;
   text-transform: uppercase;
   text-align: center;
 }
@@ -72,19 +73,17 @@ h3 {
 }
 
 #abby {
-  letter-spacing: -0.1ch;
+  letter-spacing: -0.07ch;
   margin-left: -.1ch;
 }
 
 #alex {
-  letter-spacing: -0.11ch;
+  letter-spacing: -0.06ch;
   transform: rotate(180deg);
   margin-right: -.1ch;
 }
 
 #monogram {
-  padding: 0px;
-  margin: 0px;
   margin-bottom: .25em;
 }
 
