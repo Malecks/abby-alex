@@ -2,9 +2,6 @@
   font-family: 'Bastia';
   src: url('fonts/Bastia-Bold.woff2') format('woff2'),
       url('fonts/Bastia-Bold.woff') format('woff');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
 }
 
 * {
@@ -45,7 +42,6 @@ header {
 
 h1, h2, h3 {
   font-family: 'Bastia';
-  font-weight: bold;
   text-transform: uppercase;
   text-align: center;
 }
