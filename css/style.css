@@ -28,7 +28,7 @@ body {
   font-weight: 400;
   line-height: 1.35em;
   font-size: 16px;
-  color: #45452d;
+  color: #515639;
   background-color: #B2C29E;
   border: 18px double #8A9A77;
   min-height: calc(100vh - 36px);
@@ -39,7 +39,6 @@ header {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 2em 0em;
 }
 
 #wrapper {
@@ -57,19 +56,14 @@ h1, h2, h3 {
 h1 {
   font-size: 5em;
   line-height: .9em;
-  color: #FFFAF4;
+  color: #fdfff3;
 }
 
-h2, h3 {
-  font-size: 1.2em;
+h2 {
+  font-size: 1.4em;
   letter-spacing: 0.1ch;
-  width: 100%;
-  margin-top: .5em;
-}
-
-h3 {
-  font-size: 1em;
-  text-transform: none;
+  line-height: 1.25em;
+  margin: 1em 0em;
 }
 
 #abby {
@@ -99,9 +93,10 @@ p {
 
 #house-illustration {
   display: flex;
-  height: 150px;
+  max-height: 150px;
+  max-width: 75vw;
   align-items: center;
-  margin: 0em auto;
+  margin: 1.5em auto;
   /* margin-top: 4em; */
-  /* opacity: 0.9; */
+  opacity: 0.9;
 }
