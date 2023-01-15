@@ -1,0 +1,388 @@
+@font-face {
+  font-family: 'Bastia';
+  src: url(../fonts/Bastia-Bold.woff2) format('woff2'),
+      url(../fonts/Bastia-Bold.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Bastia';
+  src: url(../fonts/Bastia-Bold.woff2) format('woff2'),
+      url(../fonts/Bastia-Bold.woff) format('woff');
+  font-weight: bold;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+  --color-sage10: #B2C29E;
+  --color-sage50: #8A9A77;
+  --color-sage80: #444E39;
+  --color-cream: #F4F2E9;
+  --color-text: #20260C;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Font styles */
+a {
+  text-decoration: none;
+}
+
+h1, h2, h3 {
+  font-kerning: normal;
+}
+
+h1 {
+  font-family: 'Bastia';
+}
+
+h2 {
+  font-family: 'Bastia';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 48px;
+}
+
+h3 {
+  font-family: 'Bastia';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 34px;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-family: 'Noto Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 27px;
+}
+
+h5 {
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+}
+
+/* Lists */
+
+ul {
+  margin-left: 2em;
+}
+
+li {
+  margin: 0.25em 0em;
+  padding-left: 0.5em;
+}
+
+/* Layouts */
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-text);
+  background-color: white;
+  overflow-x: hidden;
+  padding: 0 1.5em;
+}
+
+/* Container for Header and Nav */
+
+.LargeNav, .SmallNav {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.SmallNav {
+  height: auto;
+}
+
+
+/* Header (Monogram and Illustration) */
+
+.large, .small {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100vw;
+  mix-blend-mode: multiply;
+  background-image: url("/src/img/eville_toille.png");
+  background-color: var(--color-sage10);
+}
+
+.large {
+  height: 100vh;
+}
+
+.small {
+  flex: 1;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: fit-content;
+  height: fit-content;
+  padding: 1.5em;
+  margin: 1.5em;
+  background-color: var(--color-sage10);
+  border: var(--color-sage50) double 12px;
+  border-radius: 2px;
+  transition: padding ease-in-out 250ms;
+}
+
+.small header {
+  padding: 1.5em;
+  border: var(--color-sage50) solid 4px;
+}
+
+header h3 {
+  font-size: 1.75em;
+  color: var(--color-sage80);
+  text-align: center;
+}
+
+.small header h3 {
+  display: none;
+}
+
+#monogram {
+  line-height: 0.9em;
+  letter-spacing: -0.07ch;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--color-cream);
+  margin-left: -.2ch;
+}
+
+#monogram:hover {
+  transform: scaleY(-1);
+}
+
+.small #monogram  {
+  font-size: 3em;
+  transition: font-size ease-out 250ms;
+}
+
+.large #monogram {
+  font-size: min(20vw, 7em);
+  transition: font-size ease-out 250ms;
+}
+
+#abby {
+  margin-left: .05ch;
+}
+  
+#alex {
+  transform: scaleY(-1);
+}
+
+#house-illustration {
+  display: flex;
+  max-height: 200px;
+  max-width: 75vw;
+  align-items: center;
+  margin: 1.5em auto;
+  opacity: 0.9;
+}
+
+.small #house-illustration {
+  display: none;
+}
+
+/* Navigation bar */
+
+nav {
+  display: flex;
+  min-height: 120px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  background-color: var(--color-sage50);
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+}
+
+
+nav a {
+  margin: 0 1em;
+  margin-bottom: 2px;
+  padding: 0.5em 0.25em;
+  font-family: 'Noto Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 27px;
+  transition: all 100ms ease-out;
+  color: var(--color-text);
+}
+
+nav li {
+  margin: 0;
+  padding: 0;
+  transition: all 100ms ease-out;
+}
+
+nav li:hover {
+  translate: 0px -2px;
+}
+
+nav a:hover {
+  margin-bottom: 0px;
+  border-bottom: 2px solid var(--color-sage80);
+}
+
+nav .active {
+  color: var(--color-cream);
+}
+
+nav a.active:hover {
+  border-bottom: 2px solid var(--color-cream);
+}
+
+.navItems {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0px;
+  gap: 80px;  
+}
+
+.navItems h4 {
+  margin: 1em;
+}
+
+/* Info pages */
+
+.infoPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 72px 0px;
+  gap: 24px;
+  max-width: 600px;
+  margin: auto;
+  color: var(--color-text);
+}
+
+.infoPage h2 {
+  margin-bottom: 0.25em;
+  color: var(--color-text);
+}
+
+.infoPage h5, h5 a {
+  margin-top: 1.5em;
+  margin-bottom: 0.25em;
+  color: var(--color-sage50);
+}
+
+.infoPage h4 {
+  color: var(--color-sage50);
+}
+
+.infoPage a {
+  text-decoration: underline;
+}
+
+.schedule {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: stretch;
+  margin: 1em 3em;
+  padding: 2em 0em;
+  border: 12px double var(--color-sage10);
+}
+
+.schedule section {
+  margin: 1.5em 0em;
+}
+
+.schedule h3 {
+  padding: .5em 0em;
+}
+
+@media (max-width: 700px) {
+  nav {
+    min-height: fit-content;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav li {
+    margin: 1em 0;
+  }
+
+  nav a:hover {
+    margin-bottom: 0px;
+    border-bottom: 0px;
+  }
+  
+  nav a.active:hover {
+    border-bottom: 0px;
+  }
+
+  header {
+    padding: 1em;
+    background-color: var(--color-sage10);
+    transition: padding ease-in-out 250ms;
+  }
+
+  header h3 {
+    font-size: 1.5em;
+  }
+
+  .small #monogram  {
+    font-size: 2.5em;
+  }
+
+  .schedule {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+}
+
+@media (max-height: 600px) {
+  #house-illustration {
+    display: flex;
+    max-height: 100px;
+    max-width: 75vw;
+    align-items: center;
+    margin: 1.5em auto;
+    opacity: 0.9;
+  }
+
+  .large #monogram {
+    font-size: 3.5em;
+  }
+}
