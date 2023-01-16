@@ -309,6 +309,10 @@ nav a.active:hover {
   text-decoration: underline;
 }
 
+.infoPage p a {
+  color: var(--color-text);
+}
+
 .schedule {
   display: flex;
   flex-direction: column;
@@ -316,8 +320,8 @@ nav a.active:hover {
   align-items: center;
   text-align: center;
   width: stretch;
-  margin: 1em 3em;
-  padding: 2em 2em;
+  /* margin: 1em 3em; */
+  padding: 5em;
   border: 12px double var(--color-sage10);
 }
 

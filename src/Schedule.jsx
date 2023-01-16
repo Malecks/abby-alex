@@ -20,6 +20,10 @@ const Schedule = () => {
                     <p><em>The Chornous Pond • 6684 Poverty Hill Rd.</em></p>
                     <p><em>Dress: Swimsuit optional</em></p>
                 </section>
+
+                <section>
+                    <em>* More info, exact location, and times will be added soon!</em>
+                </section>
             </div>
         </div>
     )
