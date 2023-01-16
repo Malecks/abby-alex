@@ -317,7 +317,7 @@ nav a.active:hover {
   text-align: center;
   width: stretch;
   margin: 1em 3em;
-  padding: 2em 0em;
+  padding: 2em 2em;
   border: 12px double var(--color-sage10);
 }
 

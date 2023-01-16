@@ -17,15 +17,10 @@ const Schedule = () => {
                 <section>
                     <h4>Sundary, July 9th</h4>
                     <h3>Sunday send-off</h3>
-                    <p><em>The Chornous Pond</em></p>
+                    <p><em>The Chornous Pond • 6684 Poverty Hill Rd.</em></p>
                     <p><em>Dress: Swimsuit optional</em></p>
                 </section>
             </div>
-
-            <section>
-                <h5>The Party Shuttle</h5>
-                <p>A shuttle bus will be provided to and from the wedding on Saturday with pick-up points in <em>the village of Ellicottville</em> and at <em>Holiday valley Ski Resort</em>. Please plan to have a good time and leave your cars at home! More details will be provided closer to the big day.</p>
-            </section>
         </div>
     )
 }
