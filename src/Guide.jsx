@@ -7,7 +7,7 @@ const Guide = () => {
                 <h5><a href="https://www.westrose.restaurant/">West Rose</a></h5>
                 <p>Our favorite restaurant in town! Seasonal menus with snacks, seafood & meat and great pizza</p>
 
-                <h5>Dina's</h5>
+                <h5><a href="https://dinas.com/">Dina's</a></h5>
                 <p>A reliable stop for breakfast, lunch, or dinner. American food with lots of salads, ribs and steak.</p>
 
 
@@ -23,10 +23,10 @@ const Guide = () => {
 
             <section>
                 <h2>What to Do</h2>
-                <h5>Holiday Valley Ski hill</h5>
+                <h5><a href="https://www.holidayvalley.com/">Holiday Valley Ski hill</a></h5>
                 <p>Sky High Adventure Park (high ropes course). Golf, hiking trails, hill top lake, mountain bike trails, and swimming pools.</p>
                 
-                <h5>Mountain & Road Biking</h5>
+                <h5><a href="https://holimont.com/programs/bike-park/">Mountain & Road Biking</a></h5>
                 <p>Holimont bike park has 8 mountain bike trails serviced by a lift! Rent bikes from Loud Performance</p>
 
                 <h5><a href="https://amishtrail.com/amish-trail-brochure-map#brochure-view">Amish country</a></h5>
@@ -35,7 +35,7 @@ const Guide = () => {
                 <h5>Hiking</h5>
                 <p>Little Rock City: Cool rock formations, and an easy trail. Spruce Lake Trail: Hike the ski hill and take a dip at the top. Finger Lakes Trail: 584 mile trail system runs through Ellicottville</p>
 
-                <h5>Fly fishing</h5>
+                <h5><a href="https://adventureboundonthefly.com/ellicottville-fly-fishing/">Fly fishing</a></h5>
                 <p>Try Adventure bound Fly Fishing!</p>
             </section>
         </div>

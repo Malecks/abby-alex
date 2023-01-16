@@ -12,7 +12,7 @@ const Accomodation = () => {
                 <h2>Where to stay</h2>
                 <p>Mahalo for coming to our destination wedding! We're sorry we can't host everyone under one roof, but there are a number of great options near by.</p>
             
-                <h5>The Inn at Holiday valley</h5>
+                <h5><a href="https://www.holidayvalley.com/lodging/inn-holiday-valley/">The Inn at Holiday valley</a></h5>
                 <p>Located at the base of Holiday Valley Ski Club. Family-friendly setting with lots to do at the ski hill!</p>
                 <ul>
                     <li>10 rooms available in the Mathers / Chornous block</li>
@@ -21,7 +21,7 @@ const Accomodation = () => {
                     <li>Rate per night: $207</li>
                 </ul>
 
-                <h5>The Tamarack Club</h5>
+                <h5><a href="https://www.holidayvalley.com/lodging/tamarack-lodge/">The Tamarack Club</a></h5>
                 <p>Also located at the base of the Ski Club with the Inn at Holiday Valley.</p>
                 <ul>
                     <li>10 rooms available in the Mathers / Chornous block</li>
@@ -30,7 +30,7 @@ const Accomodation = () => {
                     <li>Rate per night: $211</li>
                 </ul>
                 
-                <h5>The Wingate by Wyndham</h5>
+                <h5><a href="https://www.wyndhamhotels.com/wingate/ellicottville-new-york/wingate-by-wyndham-ellicottville/overview">The Wingate by Wyndham</a></h5>
                 <p>Super convenient location and super forgettable décor! Stays include free breakfast and access to an indoor pool and gym.</p>
                 <ul>
                     <li>20 rooms available in the Mathers / Chornous block</li>
@@ -38,7 +38,7 @@ const Accomodation = () => {
                     <li>Rate per night: $199</li>
                 </ul>
 
-                <h5>Brickstone Suites</h5>
+                <h5><a href="https://www.brickstonesuites.com/">Brickstone Suites</a></h5>
                 <p>Five cozy 1 or 2 bed suites located above the Gin Mill bar in the Village of Ellicottville. Live music does go until midnight at the bar below.</p>
                 <ul>
                     <li>All 5 suites have been set aside for the wedding.</li> 
@@ -46,7 +46,7 @@ const Accomodation = () => {
                     <li>Rate per night: $180 - $245</li>
                 </ul>
                 
-                <h5>The Jefferson Inn</h5>
+                <h5><a href="https://www.facebook.com/profile.php?id=100042369734881&ref=py_c">The Jefferson Inn</a></h5>
                 <p>Quirky, quaint, Americana! Full of charm, this 1800's Victorian Inn is located in the center of the village of Ellicottville.</p>
                 <ul>
                     <li>No room block available.</li>

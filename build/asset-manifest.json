@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/abby-alex/static/css/main.2fc71780.css",
-    "main.js": "/abby-alex/static/js/main.7d59fadd.js",
-    "static/media/eville_toille.png": "/abby-alex/static/media/eville_toille.18a4b4a5af00db73c23f.png",
-    "static/media/Ellicottville_House_2.png": "/abby-alex/static/media/Ellicottville_House_2.761323c7e57304948ddb.png",
-    "static/media/Bastia-Bold.woff": "/abby-alex/static/media/Bastia-Bold.0f74bc002818d5f202b4.woff",
-    "static/media/Bastia-Bold.woff2": "/abby-alex/static/media/Bastia-Bold.5eb077f42b51504e47c3.woff2",
-    "index.html": "/abby-alex/index.html",
-    "main.2fc71780.css.map": "/abby-alex/static/css/main.2fc71780.css.map",
-    "main.7d59fadd.js.map": "/abby-alex/static/js/main.7d59fadd.js.map"
+    "main.css": "/static/css/main.ecf4094b.css",
+    "main.js": "/static/js/main.4b902b4b.js",
+    "static/media/eville_toille.png": "/static/media/eville_toille.18a4b4a5af00db73c23f.png",
+    "static/media/Ellicottville_House_2.png": "/static/media/Ellicottville_House_2.761323c7e57304948ddb.png",
+    "static/media/Bastia-Bold.woff": "/static/media/Bastia-Bold.0f74bc002818d5f202b4.woff",
+    "static/media/Bastia-Bold.woff2": "/static/media/Bastia-Bold.5eb077f42b51504e47c3.woff2",
+    "index.html": "/index.html",
+    "main.ecf4094b.css.map": "/static/css/main.ecf4094b.css.map",
+    "main.4b902b4b.js.map": "/static/js/main.4b902b4b.js.map"
   },
   "entrypoints": [
-    "static/css/main.2fc71780.css",
-    "static/js/main.7d59fadd.js"
+    "static/css/main.ecf4094b.css",
+    "static/js/main.4b902b4b.js"
   ]
 }
