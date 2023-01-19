@@ -35,8 +35,8 @@ const Guide = () => {
                 <h5>Hiking</h5>
                 <p><a href="https://www.alltrails.com/trail/us/new-york/little-rock-city-nature-loop-trail?u=m" target="_blank" rel="noreferrer">Little Rock City</a>: Cool rock formations, and an easy trail. <a href="https://www.alltrails.com/trail/us/new-york/spruce-lake-trail?u=m">Spruce Lake Trail</a>: Hike the ski hill and take a dip at the top. Finger Lakes Trail: 584 mile trail system runs through Ellicottville.</p>
 
-                <h5><a href="https://adventureboundonthefly.com/ellicottville-fly-fishing/" target="_blank" rel="noreferrer">Fly fishing</a></h5>
-                <p>Try Adventure bound Fly Fishing!</p>
+                <h5><a href="https://martinhouse.org/" target="_blank" rel="noreferrer">Martin House by Frank Lloyd Wright</a></h5>
+                <p>Break up your drive from the city and book a tour of Frank Lloyd Wright's Martin House. A perfect pit stop for Sunday's drive back to Toronto.</p>
             </section>
         </div>
     )
