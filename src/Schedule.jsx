@@ -15,7 +15,7 @@ const Schedule = () => {
                     <p><em>Dress: Garden formal</em></p>
                 </section>
                 <section>
-                    <h4>Sundary, July 9th</h4>
+                    <h4>Sunday, July 9th</h4>
                     <h3>Sunday send-off</h3>
                     <p><em>The Chornous Pond • 6684 Poverty Hill Rd.</em></p>
                     <p><em>Dress: Swimsuit optional</em></p>
