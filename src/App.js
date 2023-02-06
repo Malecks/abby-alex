@@ -8,6 +8,7 @@ import Accomodation from './Accomodation'
 import House from './House'
 import Schedule from './Schedule'
 import Faq from './Faq'
+import GuestList from './components/GuestList'
 
 function App() {
   return <HashRouter>
@@ -17,7 +18,8 @@ function App() {
           <Route path='/guide' element={<Guide />}></Route>
           <Route path='/house' element={<House />}></Route>
           <Route path='/schedule' element={<Schedule />}></Route>
-          <Route path='/faq' element={<Faq></Faq>}></Route>
+          <Route path='/faq' element={<Faq />}></Route>
+          <Route path='/guest-list' element={<GuestList />}></Route>
         </Route>
       </Routes>
   </HashRouter>

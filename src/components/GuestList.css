@@ -1,0 +1,78 @@
+#guest-input-wrapper {
+    max-width: 400px;
+    margin: 2em auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5em;
+    margin-top: 2em;
+    gap: 16px;
+}
+
+label {
+    font-size: medium;
+    font-family: 'Noto serif';
+    color: var(--color-grey40);
+}
+
+input, select {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 4px 16px;
+    gap: 4px;
+
+    height: 64px;
+    width: stretch;
+
+    background: var(--color-grey10);
+    border-radius: 4px;
+    border: none;
+
+    font-style: normal;
+    font-size: large;
+}
+
+input::placeholder {
+    color: var(--color-text-placeholder);
+}
+
+button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 12px;
+    gap: 4px;
+    
+    height: 56px;
+    width: stretch;
+        
+    background-color: var(--color-sage50);
+    border-radius: 4px;
+    border: none;
+
+    font-family: 'Noto Serif';
+    font-size: large;
+    color: var(--color-cream);
+}
+
+button:hover {
+    background-color: var(--color-sage65);
+}
+
+button:active {
+    background-color: var(--color-sage80);
+}
+
+#first-last {
+    display: flex;
+    flex-direction: row;
+}
+
+#first-last :last-child input {
+    margin-right: 0px;
+    width: 100%;
+}

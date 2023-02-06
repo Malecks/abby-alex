@@ -1,0 +1,29 @@
+.guestInfo {
+    display: flex;
+    flex-direction: row;
+    width: 500px;
+    margin: auto;
+    padding: 10px 0px;
+}
+
+.guest {
+    margin-right: auto;
+}
+
+h4 {
+    font-size: larger;
+}
+
+.email {
+    font-size: smaller; 
+}
+
+.attending {
+    padding: 8px 12px;
+    border: 1px solid blue;
+}
+
+.notAttending {
+    padding: 8px 12px;
+    border: 1px solid blue;
+}
