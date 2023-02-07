@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { db } from '../firebase-config'
 import {addDoc, collection, getDocs } from 'firebase/firestore'
 import { getDatabase, ref, set } from "firebase/database"
+import { Formik, Field, Form } from 'formik'
 
 import GuestInfo from './GuestInfo'
 
@@ -39,10 +40,10 @@ function GuestList() {
         console.log(parties)
     }
 
-    const addParty = async () => {
+    const addParty = async (newParty) => {
         await addDoc(partiesRef, {
             guests: [],
-            partyName: newPartyValue
+            partyName: newParty
         })
     }
 
@@ -64,16 +65,26 @@ function GuestList() {
     return (
         <div>
             <div id="guest-input-wrapper">
-                <form>
-                    <label>
-                        Add party
-                    </label>
+                <Formik
+                    initialValues={{
+                        partyName:'',
+                    }}
+                    onSubmit={async (values) => {
+                        await new Promise((r) => setTimeout(r, 500))
+                        alert(JSON.stringify(values, null, 2))
+                    }}
+                >
+                    {({ isSubmitting }) => (
+                        <Form>
+                            <label htmlFor="Party name">Party name</label>
+                            <Field id="partyName" name="partyName" placeholder="Party name" />
+                            <button type="submit" disabled={isSubmitting}>Submit</button>
+                        </Form>
+                    )}
 
-                    <input value={newPartyValue} onChange={event => setNewPartyValue(event.target.value)} type="text" placeholder="Name" />
-                </form> 
-                <button onClick={addParty}>Add party</button> 
+                </Formik>
                 
-                <form>
+                {/* <form>
                     <label>
                         Guest Info
                     </label>
@@ -87,7 +98,7 @@ function GuestList() {
                     <input value={lastValue} onChange={event => setLastValue(event.target.value)} id="last" type="text" placeholder="Last"/>
                     <input value={emailValue} onChange={event => setEmailValue(event.target.value)} id ="email" type="email" placeholder="Email"/>
                 </form>
-                <button onClick={addGuest}>Add guest</button>
+                <button onClick={addGuest}>Add guest</button> */}
                              
             </div>
 
