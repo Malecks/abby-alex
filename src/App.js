@@ -19,8 +19,8 @@ function App() {
           <Route path='/house' element={<House />}></Route>
           <Route path='/schedule' element={<Schedule />}></Route>
           <Route path='/faq' element={<Faq />}></Route>
-          <Route path='/guest-list' element={<GuestList />}></Route>
         </Route>
+        <Route path='/guest-list' element={<GuestList />}></Route>
       </Routes>
   </HashRouter>
 }
