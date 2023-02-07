@@ -18,12 +18,24 @@ h4 {
     font-size: smaller; 
 }
 
-.attending {
+.attending, .notAttending {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     padding: 8px 12px;
-    border: 1px solid blue;
+    gap: 4px;
+
+    min-height: 50px;
+
+    border-radius: 2px;
 }
 
-.notAttending {
-    padding: 8px 12px;
-    border: 1px solid blue;
+.attending {
+    background: var(--color-sage10);
+}
+
+.notAttending {    
+    color: var(--color-cream);
+    background: var(--color-sage80);
 }

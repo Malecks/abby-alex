@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import { db } from '../firebase-config'
 import {addDoc, collection, getDocs } from 'firebase/firestore'
-import { getDatabase, ref, set } from "firebase/database"
+import { getDatabase, ref, set } from 'firebase/database'
 import { Formik, Field, Form } from 'formik'
 
 import GuestInfo from './GuestInfo'
@@ -11,18 +11,9 @@ import './GuestList.css'
 import { async } from '@firebase/util'
 
 function GuestList() {
-
     // DB values
     const [guests, setGuests] = useState([])
     const [parties, setParties] = useState([])
-
-    // Form values
-    const [firstValue, setFirstValue] = useState("")
-    const [lastValue, setLastValue] = useState("") 
-    const [emailValue, setEmailValue] = useState("")
-    const [partyValue, setPartyValue] = useState("")
-    
-    const [newPartyValue, setNewPartyValue] = useState("")
 
     const guestsRef = collection(db, 'guests')
     const getGuests = async () => {
@@ -47,13 +38,13 @@ function GuestList() {
         })
     }
 
-    const addGuest = async () => {
+    const addGuest = async (newGuest) => {
         await addDoc(guestsRef, {
-            attending: false,
-            email: emailValue,
-            first: firstValue,
-            last: lastValue,
-            party: partyValue 
+            attending: newGuest.ceremony,
+            email: newGuest.email,
+            first: newGuest.firstName,
+            last: newGuest.lastName,
+            party: newGuest.partyName 
         })
     }
 
@@ -64,42 +55,66 @@ function GuestList() {
     
     return (
         <div>
-            <div id="guest-input-wrapper">
+            <div id='guest-input-wrapper'>
+                {/* Add party form */}
                 <Formik
                     initialValues={{
                         partyName:'',
                     }}
                     onSubmit={async (values) => {
-                        await new Promise((r) => setTimeout(r, 500))
-                        alert(JSON.stringify(values, null, 2))
+                        addParty(values.partyName)
                     }}
                 >
                     {({ isSubmitting }) => (
                         <Form>
-                            <label htmlFor="Party name">Party name</label>
-                            <Field id="partyName" name="partyName" placeholder="Party name" />
-                            <button type="submit" disabled={isSubmitting}>Submit</button>
+                            <label htmlFor='Party name'>Party name</label>
+                            <Field id='partyName' name='partyName' placeholder='Party name' />
+                            <button type='submit' disabled={isSubmitting}>Add party</button>
                         </Form>
                     )}
-
                 </Formik>
+                <hr />
                 
-                {/* <form>
-                    <label>
-                        Guest Info
-                    </label>
-                    <select required={true} value={partyValue} onChange={event => setPartyValue(event.target.value)}>
-                        <option disabled value="">Select party</option>
-                        { parties.map((party) => {
-                            return <option value={party.id} key={party.id}>{party.partyName}</option>
-                        })}
-                    </select>
-                    <input value={firstValue} onChange={event => setFirstValue(event.target.value)} type="text" placeholder="First"/>
-                    <input value={lastValue} onChange={event => setLastValue(event.target.value)} id="last" type="text" placeholder="Last"/>
-                    <input value={emailValue} onChange={event => setEmailValue(event.target.value)} id ="email" type="email" placeholder="Email"/>
-                </form>
-                <button onClick={addGuest}>Add guest</button> */}
-                             
+                {/* RSVP form */}
+                <Formik
+                    initialValues={{
+                        partyName:'',
+                        firstName:'',
+                        lastName:'',
+                        email:'',
+                        fridayEvent: false,
+                        ceremony: true,
+                        sundayEvent: false,
+                        entre:'',
+                        notes:'',
+                    }}
+                    onSubmit={async (values) => {
+                        addGuest(values)
+                    }}
+                >
+                    {({ isSubmitting }) => (
+                        <Form>
+                            <label htmlFor='Party name'>Party name</label>                            
+                            <Field as='select' id='guestPartyName'  name='guestPartyName' placeholder='Select party'>
+                                <option disabled value=''>Select party</option>
+                                { parties.map((party) => {
+                                    return <option value={party.id} key={party.id}>{party.partyName}</option>
+                                })}
+                            </Field>
+                            <hr />
+                            <label htmlFor='firstName'>First name</label>
+                            <Field id='firstName' name='firstName' placeholder='Albus' />
+
+                            <label htmlFor='lastName'>Last name</label>
+                            <Field id='lastName' name='lastName' placeholder='Dumbledore' />
+
+                            <label htmlFor='email'>Email</label>
+                            <Field id='email' name='email' placeholder='your.name@gmail.com' />
+                            <hr />
+                            <button type='submit' disabled={isSubmitting}>Submit</button>
+                        </Form>
+                    )}
+                </Formik>    
             </div>
 
             { guests.map((guest) => {
