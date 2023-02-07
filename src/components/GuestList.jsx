@@ -76,6 +76,11 @@ function GuestList() {
                 <hr />
                 
                 {/* RSVP form */}
+                <header id='rsvpHeader'>
+                    <div>July 8th, 2023 – Ellicottville N.Y.</div>
+                    <h1>You're invited, Alex</h1>
+                </header>
+
                 <Formik
                     initialValues={{
                         partyName:'',
@@ -111,6 +116,20 @@ function GuestList() {
                             <label htmlFor='email'>Email</label>
                             <Field id='email' name='email' placeholder='your.name@gmail.com' />
                             <hr />
+                            <div role='group' aria-labelledby='checkbox-group'>
+                                <label className='checkBox'>
+                                    <Field type='checkbox' name='checked' value='fridayEvent' />
+                                    Friday July 7th – Welcome drinks
+                                </label>
+                                <label className='checkBox'>
+                                    <Field type='checkbox' name='checked' value='ceremony' />
+                                    Saturday July 8th – Ceremony, dinner, and dancing!
+                                </label>
+                                <label className='checkBox'>
+                                    <Field type='checkbox' name='checked' value='sundayEvent' />
+                                    Sunday July 8th – Pond brunch (11am – 2pm)
+                                </label>
+                            </div>
                             <button type='submit' disabled={isSubmitting}>Submit</button>
                         </Form>
                     )}

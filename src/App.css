@@ -138,7 +138,7 @@ li {
   flex: 1;
 }
 
-header {
+#mainHeader {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -152,18 +152,18 @@ header {
   transition: padding ease-in-out 250ms;
 }
 
-.small header {
+.small #mainHeader {
   padding: 1.5em;
   border: var(--color-sage50) solid 4px;
 }
 
-header h3 {
+#mainHeader h3 {
   font-size: 1.75em;
   color: var(--color-sage80);
   text-align: center;
 }
 
-.small header h3 {
+.small #mainHeader h3 {
   display: none;
 }
 
