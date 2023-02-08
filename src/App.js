@@ -9,6 +9,7 @@ import House from './House'
 import Schedule from './Schedule'
 import Faq from './Faq'
 import GuestList from './components/GuestList'
+import RsvpForm from './components/RsvpForm'
 
 function App() {
   return <HashRouter>
@@ -20,6 +21,7 @@ function App() {
           <Route path='/schedule' element={<Schedule />}></Route>
           <Route path='/faq' element={<Faq />}></Route>
         </Route>
+        <Route path='/rsvp' element={<RsvpForm />}></Route>
         <Route path='/guest-list' element={<GuestList />}></Route>
       </Routes>
   </HashRouter>
