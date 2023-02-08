@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 
 import { db } from '../firebase-config'
 import {addDoc, collection, getDocs } from 'firebase/firestore'
-import { Formik, Field, Form } from 'formik'
+import { Formik, Field, Form, useFormikContext } from 'formik'
+
 
 import './Rsvp.css'
 
@@ -12,6 +13,31 @@ function RsvpForm() {
     const partiesRef = collection(db, 'parties')
 
     const [parties, setParties] = useState([])
+
+    const [showFields, setShowFields] = useState(false)
+
+    const FormObserver = () => {
+        const { values } = useFormikContext();
+        useEffect(() => {
+          console.log("FormObserver::values", values)
+            switch (values.ceremony) {
+                case 'yes': 
+                    if (!showFields) {
+                        setShowFields(true)
+                    }
+                    console.log(showFields)
+                    return
+                case '', 'no':
+                    if (showFields) {
+                        setShowFields(false)
+                    }
+                    console.log(showFields)
+                    return
+            }
+        }, [values]);
+        return null;
+      };
+
 
     const getParties = async () => {
         const data = await getDocs(partiesRef)
@@ -47,9 +73,9 @@ function RsvpForm() {
                     firstName:'',
                     lastName:'',
                     email:'',
-                    fridayEvent: false,
-                    ceremony: true,
-                    sundayEvent: false,
+                    fridayEvent: '',
+                    ceremony: '',
+                    sundayEvent: '',
                     entre:'',
                     notes:'',
                 }}
@@ -59,6 +85,7 @@ function RsvpForm() {
             >
                 {({ isSubmitting }) => (
                     <Form>
+                        <FormObserver />
                         <label htmlFor='Party name'>Party name</label>                            
                         <Field as='select' id='guestPartyName' name='guestPartyName' placeholder='Select party'>
                             <option disabled value=''>Select party</option>
@@ -76,19 +103,25 @@ function RsvpForm() {
                         <label htmlFor='email'>Email</label>
                         <Field id='email' name='email' placeholder='your.name@gmail.com' />
                         <hr />
-                        <div role='group' aria-labelledby='checkbox-group'>
-                            <label className='checkBox'>
-                                <Field type='checkbox' name='checked' value='fridayEvent' />
-                                Friday July 7th – Welcome drinks
-                            </label>
-                            <label className='checkBox'>
-                                <Field type='checkbox' name='checked' value='ceremony' />
-                                Saturday July 8th – Ceremony, dinner, and dancing!
-                            </label>
-                            <label className='checkBox'>
-                                <Field type='checkbox' name='checked' value='sundayEvent' />
-                                Sunday July 8th – Pond brunch (11am – 2pm)
-                            </label>
+                        
+                        {/* Ceremony */}
+                        <label htmlFor='ceremony'>Wedding</label>
+                        <p className='rsvpQuestion'>Will you be attending the <strong>Ceremony and Reception</strong> on July 8th? (5pm – late).</p>
+                        <Field as='select' id='ceremony' name='ceremony'>
+                            <option value='' disabled>Please select</option>
+                            <option value='yes' key='yes'>Yes! I will be attending.</option>
+                            <option value='no' key='no'>Unfortunately, I will not be attending.</option>
+                        </Field>
+
+                        <div hidden={!showFields}>
+                            <label htmlFor='entre'>What would you like for dinner?</label>
+                            <Field as='select' id='entre' name='entre'>
+                                <option value='' disabled>Please select</option>
+                                <option value='chicken' key='chicken'>Chicken</option>
+                                <option value='steak' key='steak'>Steak</option>
+                                <option value='vegetarian' key='vegetarian'>Vegetarian</option>
+                                <option value='surprise' key='surprise'>Surprise me!</option>
+                            </Field>
                         </div>
                         <button type='submit' disabled={isSubmitting}>Submit</button>
                     </Form>

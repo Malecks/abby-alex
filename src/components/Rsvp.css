@@ -1,3 +1,4 @@
+
 #rsvpHeader {
     display: flex;
     flex-direction: column;
@@ -97,4 +98,13 @@ hr {
 #first-last :last-child input {
     margin-right: 0px;
     width: 100%;
+}
+
+.rsvpQuestion {
+    font-family: 'Noto Serif';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 28px;
+    margin: 12px 0;
 }
