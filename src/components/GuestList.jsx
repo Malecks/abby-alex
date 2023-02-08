@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from 'react'
 
 import { db } from '../firebase-config'
-import {addDoc, collection, getDocs } from 'firebase/firestore'
+import { collection, getDocs } from 'firebase/firestore'
 // import { getDatabase, ref, set } from 'firebase/database'
-// import { async } from '@firebase/util'
-
-// import { Formik, Field, Form } from 'formik'
 
 import GuestInfo from './GuestInfo'
-
-import './GuestList.css'
+import './Rsvp.css'
 
 function GuestList() {
     // DB values
@@ -30,13 +26,6 @@ function GuestList() {
         const data = await getDocs(partiesRef)
         setParties(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
         console.log(parties)
-    }
-
-    const addParty = async (newParty) => {
-        await addDoc(partiesRef, {
-            guests: [],
-            partyName: newParty
-        })
     }
 
     useEffect(() => {

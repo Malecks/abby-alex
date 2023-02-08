@@ -10,6 +10,7 @@ import Schedule from './Schedule'
 import Faq from './Faq'
 import GuestList from './components/GuestList'
 import RsvpForm from './components/RsvpForm'
+import AddParty from './components/AddParty'
 
 function App() {
   return <HashRouter>
@@ -23,6 +24,8 @@ function App() {
         </Route>
         <Route path='/rsvp' element={<RsvpForm />}></Route>
         <Route path='/guest-list' element={<GuestList />}></Route>
+        <Route path='/add-party' element={<AddParty />}></Route>
+
       </Routes>
   </HashRouter>
 }

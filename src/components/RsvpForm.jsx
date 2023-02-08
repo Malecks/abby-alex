@@ -2,20 +2,17 @@ import React, { useState, useEffect } from 'react'
 
 import { db } from '../firebase-config'
 import {addDoc, collection, getDocs } from 'firebase/firestore'
-
-// import { getDatabase, ref, set } from 'firebase/database'
-// import { async } from '@firebase/util'
 import { Formik, Field, Form } from 'formik'
 
-import './GuestList.css'
+import './Rsvp.css'
 
 function RsvpForm() {
     // const [guests, setGuests] = useState([])
+    const guestsRef = collection(db, 'guests')
+    const partiesRef = collection(db, 'parties')
+
     const [parties, setParties] = useState([])
 
-    const guestsRef = collection(db, 'guests')
-
-    const partiesRef = collection(db, 'parties')
     const getParties = async () => {
         const data = await getDocs(partiesRef)
         setParties(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
@@ -37,26 +34,7 @@ function RsvpForm() {
       }, [])
 
     return (
-        <div id='guest-input-wrapper'>
-            {/* Add party form
-            <Formik
-                initialValues={{
-                    partyName:'',
-                }}
-                onSubmit={async (values) => {
-                    addParty(values.partyName)
-                }}
-            >
-                {({ isSubmitting }) => (
-                    <Form>
-                        <label htmlFor='Party name'>Party name</label>
-                        <Field id='partyName' name='partyName' placeholder='Party name' />
-                        <button type='submit' disabled={isSubmitting}>Add party</button>
-                    </Form>
-                )}
-            </Formik>
-            <hr /> */}
-            
+        <div className='rsvpWrapper'>            
             {/* RSVP form */}
             <header id='rsvpHeader'>
                 <div>July 8th, 2023 – Ellicottville N.Y.</div>
