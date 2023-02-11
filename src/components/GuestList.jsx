@@ -5,7 +5,7 @@ import { collection, getDocs } from 'firebase/firestore'
 // import { getDatabase, ref, set } from 'firebase/database'
 
 import GuestInfo from './GuestInfo'
-import './Rsvp.css'
+import '../Rsvp.css'
 
 function GuestList() {
     // DB values
@@ -34,15 +34,7 @@ function GuestList() {
       }, [])
     
     return (
-        <div>
-            <nav id='rsvpNav'>
-                <ul>
-                    <li>website</li>
-                    <li>parties</li>
-                    <li>guest list</li>
-                </ul>
-            </nav>
-
+        <>
             { guests.map((guest) => {
             return <GuestInfo 
                 key={guest.id}
@@ -52,7 +44,7 @@ function GuestList() {
                 attending={guest.attending}
             />
             })}
-        </div>
+        </>
     )
 }
 

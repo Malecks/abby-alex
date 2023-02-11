@@ -1,5 +1,13 @@
 import React from 'react'
-import { HashRouter, Routes, Route } from 'react-router-dom'
+// import { Routes, Route, BrowserRouter } from 'react-router-dom'
+
+
+import {
+  createBrowserRouter, 
+  createRoutesFromElements,
+  Route, 
+  RouterProvider
+} from 'react-router-dom'
 
 import './App.css'
 import Home from './Home'
@@ -8,26 +16,36 @@ import Accomodation from './Accomodation'
 import House from './House'
 import Schedule from './Schedule'
 import Faq from './Faq'
-import GuestList from './components/GuestList'
-import RsvpForm from './components/RsvpForm'
+import Rsvp from './Rsvp'
+import RsvpForm, { getGuest } from './components/RsvpForm'
 import AddParty from './components/AddParty'
 
-function App() {
-  return <HashRouter>
-      <Routes>
-        <Route path='/' element={<Home />}>
-          <Route path='/accomodation' element={<Accomodation />}></Route>
-          <Route path='/guide' element={<Guide />}></Route>
-          <Route path='/house' element={<House />}></Route>
-          <Route path='/schedule' element={<Schedule />}></Route>
-          <Route path='/faq' element={<Faq />}></Route>
-        </Route>
-        <Route path='/rsvp' element={<RsvpForm />}></Route>
-        <Route path='/guest-list' element={<GuestList />}></Route>
-        <Route path='/add-party' element={<AddParty />}></Route>
 
-      </Routes>
-  </HashRouter>
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path='/' element={<Home />}>
+      <Route path='/accomodation' element={<Accomodation />} />
+      <Route path='/guide' element={<Guide />} />
+      <Route path='/house' element={<House />} />
+      <Route path='/schedule' element={<Schedule />} />
+      <Route path='/faq' element={<Faq />} />
+      
+      <Route path='/rsvp' element={<Rsvp />}>
+        <Route index element={<AddParty />} />
+        <Route 
+          path='/rsvp/:guestId'
+          loader= { getGuest }
+          element={<RsvpForm />}
+        />
+      </Route>
+    </Route>
+  )
+)
+
+function App() {
+  return (
+    <RouterProvider router={router} />
+  )
 }
 
 export default App

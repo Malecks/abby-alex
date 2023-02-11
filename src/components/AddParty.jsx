@@ -2,7 +2,7 @@ import { db } from '../firebase-config'
 import { addDoc, collection } from 'firebase/firestore'
 import { Formik, Field, Form } from 'formik'
 
-import './Rsvp.css'
+import '../Rsvp.css'
 
 function AddParty() {
     const partiesRef = collection(db, 'parties')
