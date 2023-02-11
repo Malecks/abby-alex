@@ -23,22 +23,24 @@ import AddParty from './components/AddParty'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' element={<Home />}>
-      <Route path='/accomodation' element={<Accomodation />} />
-      <Route path='/guide' element={<Guide />} />
-      <Route path='/house' element={<House />} />
-      <Route path='/schedule' element={<Schedule />} />
-      <Route path='/faq' element={<Faq />} />
+    <>
+      <Route path='/' element={<Home />}>
+        <Route path='/accomodation' element={<Accomodation />} />
+        <Route path='/guide' element={<Guide />} />
+        <Route path='/house' element={<House />} />
+        <Route path='/schedule' element={<Schedule />} />
+        <Route path='/faq' element={<Faq />} />
+      </Route>
       
       <Route path='/rsvp' element={<Rsvp />}>
-        <Route index element={<AddParty />} />
-        <Route 
-          path='/rsvp/:guestId'
-          loader= { getGuest }
-          element={<RsvpForm />}
-        />
+          <Route index element={<AddParty />} />
+          <Route
+            path='/rsvp/:guestId'
+            loader={getGuest}
+            element={<RsvpForm />} 
+          />
       </Route>
-    </Route>
+    </>
   )
 )
 
