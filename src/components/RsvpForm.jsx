@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 
 import { db } from '../firebase-config'
-import {addDoc, collection, getDocs, doc, getDoc } from 'firebase/firestore'
+import { collection, getDocs, doc, getDoc, setDoc } from 'firebase/firestore'
 import { Formik, Field, Form, useFormikContext } from 'formik'
 
 import '../Rsvp.css'
 import { useLoaderData } from 'react-router-dom'
 
 export default function RsvpForm() {
-    const guest = useLoaderData()
+    const {guest, guestId} = useLoaderData()
 
     const guestsRef = collection(db, 'guests')
     const partiesRef = collection(db, 'parties')
@@ -41,13 +41,19 @@ export default function RsvpForm() {
         console.log(parties)
     }
 
-    const addGuest = async (newGuest) => {
-        await addDoc(guestsRef, {
-            attending: newGuest.ceremony,
-            email: newGuest.email,
-            first: newGuest.firstName,
-            last: newGuest.lastName,
-            party: newGuest.guestPartyName 
+    const addGuest = async (values) => {
+        console.log('GUESTId~~~~' + guestId)
+        const guestRef = doc(db, 'guests', guestId)
+        await setDoc(guestRef, {
+            party: values.partyName,
+            first: values.firstName,
+            last: values.lastName,
+            email: values.email,
+            fridayEvent: values.fridayEvent,
+            ceremony: values.ceremony,
+            sundayEvent: values.sundayEvent,
+            entre: values.entre,
+            notes: values.notes
         })
     }
 
@@ -82,14 +88,14 @@ export default function RsvpForm() {
                 {({ isSubmitting }) => (
                     <Form>
                         <FormObserver />
-                        <label htmlFor='Party name'>Party name</label>                            
+                        {/* <label htmlFor='Party name'>Party name</label>                            
                         <Field as='select' id='guestPartyName' name='guestPartyName' placeholder='Select party'>
                             <option disabled value=''>Select party</option>
                             { parties.map((party) => {
                                 return <option value={party.id} key={party.id}>{party.partyName}</option>
                             })}
                         </Field>
-                        <hr />
+                        <hr /> */}
                         <label htmlFor='firstName'>First name</label>
                         <Field id='firstName' name='firstName' placeholder={ guest.first } />
             
@@ -208,12 +214,13 @@ const guestConverter = {
 }
 
 export const getGuest = async ({ params }) => {
-    const guest = doc(db, 'guests/' + params.guestId).withConverter(guestConverter)
-    const guestSnap = await getDoc(guest)
+    const guestRef = doc(db, 'guests/' + params.guestId).withConverter(guestConverter)
+    const guestSnap = await getDoc(guestRef)
     if (guestSnap.exists()) {
         const guest = guestSnap.data()
         console.log("Document data:", guestSnap.data())
-        return guest
+        console.log(guestRef.id)
+        return { guest: guest, guestId: guestRef.id }
     } else { 
         console.log("No document!")
         return
