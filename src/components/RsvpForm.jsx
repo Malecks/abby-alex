@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import { db } from '../firebase-config'
-import { collection, getDocs, doc, getDoc, setDoc } from 'firebase/firestore'
+import { doc, getDoc, setDoc } from 'firebase/firestore'
 import { Formik, Field, Form, useFormikContext } from 'formik'
 
 import '../Rsvp.css'
@@ -10,10 +10,6 @@ import { useLoaderData } from 'react-router-dom'
 export default function RsvpForm() {
     const {guest, guestId} = useLoaderData()
 
-    const guestsRef = collection(db, 'guests')
-    const partiesRef = collection(db, 'parties')
-
-    const [parties, setParties] = useState([])
     const [showFields, setShowFields] = useState(false)
 
     const FormObserver = () => {
@@ -35,14 +31,7 @@ export default function RsvpForm() {
         return null
     }
 
-    const getParties = async () => {
-        const data = await getDocs(partiesRef)
-        setParties(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
-        console.log(parties)
-    }
-
     const addGuest = async (values) => {
-        console.log('GUESTId~~~~' + guestId)
         const guestRef = doc(db, 'guests', guestId)
         await setDoc(guestRef, {
             party: values.partyName,
@@ -56,10 +45,6 @@ export default function RsvpForm() {
             notes: values.notes
         })
     }
-
-    useEffect(() => {
-        getParties()
-      }, [])
 
     return (
         <div className='rsvpWrapper'>            
@@ -88,14 +73,7 @@ export default function RsvpForm() {
                 {({ isSubmitting }) => (
                     <Form>
                         <FormObserver />
-                        {/* <label htmlFor='Party name'>Party name</label>                            
-                        <Field as='select' id='guestPartyName' name='guestPartyName' placeholder='Select party'>
-                            <option disabled value=''>Select party</option>
-                            { parties.map((party) => {
-                                return <option value={party.id} key={party.id}>{party.partyName}</option>
-                            })}
-                        </Field>
-                        <hr /> */}
+
                         <label htmlFor='firstName'>First name</label>
                         <Field id='firstName' name='firstName' placeholder={ guest.first } />
             
@@ -146,8 +124,6 @@ export default function RsvpForm() {
                                 <option value='no' >Unfortunately, I will not be attending.</option>
                                 <option value='maybe'>Put me down as a 'maybe'.</option>
                             </Field>
-
-
                         </div>
                         <button type='submit' disabled={isSubmitting}>Submit</button>
                     </Form>

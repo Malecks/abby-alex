@@ -19,6 +19,7 @@ import Faq from './Faq'
 import Rsvp from './Rsvp'
 import RsvpForm, { getGuest } from './components/RsvpForm'
 import AddParty from './components/AddParty'
+import GuestList from './components/GuestList'
 
 
 const router = createBrowserRouter(
@@ -39,6 +40,7 @@ const router = createBrowserRouter(
             loader={getGuest}
             element={<RsvpForm />} 
           />
+          <Route path='guest-list' element={<GuestList />} />
       </Route>
     </>
   )
