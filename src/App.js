@@ -16,10 +16,10 @@ import Accomodation from './Accomodation'
 import House from './House'
 import Schedule from './Schedule'
 import Faq from './Faq'
-import Rsvp from './Rsvp'
-import RsvpForm, { getGuest } from './components/RsvpForm'
-import AddParty from './components/AddParty'
-import GuestList from './components/GuestList'
+import Rsvp from './rsvp/Rsvp'
+import RsvpForm, { getGuest } from './rsvp/RsvpForm'
+import AddParty from './rsvp/AddParty'
+import GuestList from './rsvp/GuestList'
 
 
 const router = createBrowserRouter(
@@ -40,7 +40,7 @@ const router = createBrowserRouter(
             loader={getGuest}
             element={<RsvpForm />} 
           />
-          <Route path='guest-list' element={<GuestList />} />
+          <Route path='/rsvp/guest-list' element={<GuestList />} />
       </Route>
     </>
   )

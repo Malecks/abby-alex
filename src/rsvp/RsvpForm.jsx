@@ -4,7 +4,7 @@ import { db } from '../firebase-config'
 import { doc, getDoc, setDoc } from 'firebase/firestore'
 import { Formik, Field, Form, useFormikContext } from 'formik'
 
-import '../Rsvp.css'
+import './Rsvp.css'
 import { useLoaderData } from 'react-router-dom'
 
 export default function RsvpForm() {

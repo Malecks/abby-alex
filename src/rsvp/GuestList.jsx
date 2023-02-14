@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react'
 import { db } from '../firebase-config'
 import { collection, getDocs } from 'firebase/firestore'
 
-import GuestInfo from './GuestInfo'
-import '../Rsvp.css'
+import GuestInfo from '../components/GuestInfo'
+import './Rsvp.css'
 
 function GuestList() {
     const [guests, setGuests] = useState([])
