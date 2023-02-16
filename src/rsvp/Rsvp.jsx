@@ -7,14 +7,13 @@ function Rsvp () {
         <>
             <nav id='rsvpNav'>
                 <ul>
-                    <li>website</li>
-                    <li>parties</li>
-                    <li>guest list</li>
+                    <li><NavLink to="/" className={({ isActive }) => isActive ? 'active' : null }>{"← Wedding website"}</NavLink></li>
                 </ul>
             </nav>
-            
-            <Outlet>
-            </Outlet>
+            <div className="rsvpWrapper">
+                <Outlet>
+                </Outlet>
+            </div>
         </>
     )
 }

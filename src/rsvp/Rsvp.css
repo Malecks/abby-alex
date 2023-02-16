@@ -1,13 +1,5 @@
-#rsvpHeader {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    background: none;
-    border: none;
-
-    width: stretch;
+body {
+    color: var(--color-text);
 }
 
 #rsvpNav {
@@ -17,6 +9,17 @@
 .rsvpWrapper {
     max-width: 400px;
     margin: 2em auto;
+    padding: 0 .5em;
+}
+
+h1 { 
+    text-align: center;
+    color: var(--color-text);
+}
+
+h4 {
+    margin: 1em 0;
+    color: var(--color-sage50)
 }
 
 form {
@@ -24,7 +27,7 @@ form {
     flex-direction: column;
     margin-bottom: 0.5em;
     margin-top: 2em;
-    gap: 8px;
+    gap: 12px;
 }
 
 label {
@@ -85,7 +88,7 @@ button:active {
 }
 
 hr {
-    margin: 1em 0 2em 0;
+    margin: 1em 0;
     border: 0.5px solid var(--color-cream);
 }
 
@@ -103,13 +106,26 @@ hr {
     font-family: 'Noto Serif';
     font-style: normal;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 28px;
-    margin: 12px 0;
+    margin: 1em 0 0.5em 0;
 }
 
 .extraFields {
     display: flex;
     flex-direction: column;
     gap: 12px;
+}
+
+.prompt {
+    margin: 2em 0;
+    font-size: large;
+    font-family: 'Noto Serif';
+    line-height: 160%;
+    animation: fadeIn 5s;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }

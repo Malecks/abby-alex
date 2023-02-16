@@ -18,8 +18,8 @@ import Schedule from './Schedule'
 import Faq from './Faq'
 import Rsvp from './rsvp/Rsvp'
 import RsvpForm, { getGuest } from './rsvp/RsvpForm'
-import AddParty from './rsvp/AddParty'
 import GuestList from './rsvp/GuestList'
+import InviteSearch from './rsvp/InviteSearch'
 
 
 const router = createBrowserRouter(
@@ -34,7 +34,7 @@ const router = createBrowserRouter(
       </Route>
       
       <Route path='/rsvp' element={<Rsvp />}>
-          <Route index element={<AddParty />} />
+          <Route index element={<InviteSearch />} />
           <Route
             path='/rsvp/:guestId'
             loader={getGuest}

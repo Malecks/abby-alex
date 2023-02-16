@@ -49,10 +49,7 @@ export default function RsvpForm() {
     return (
         <div className='rsvpWrapper'>            
             {/* RSVP form */}
-            <header id='rsvpHeader'>
-                <div>July 8th, 2023 – Ellicottville N.Y.</div>
-                <h1>You're invited, { guest.first ?? '' }</h1>
-            </header>
+            <h1>{ guest.first ? (guest.first + ", you're invited!") : "You're invited!" }</h1>
             
             <Formik
                 initialValues={{
@@ -73,21 +70,23 @@ export default function RsvpForm() {
                 {({ isSubmitting }) => (
                     <Form>
                         <FormObserver />
-
-                        <label htmlFor='firstName'>First name</label>
-                        <Field id='firstName' name='firstName' placeholder={ guest.first } />
+                        <hr />
+                        <h4>Guest information</h4>
+                        {/* <label htmlFor='firstName'>First name</label> */}
+                        <Field id='firstName' name='firstName' placeholder='First name' />
             
-                        <label htmlFor='lastName'>Last name</label>
-                        <Field id='lastName' name='lastName' placeholder={ guest.last } />
+                        {/* <label htmlFor='lastName'>Last name</label> */}
+                        <Field id='lastName' name='lastName' placeholder='Last name' />
             
-                        <label htmlFor='email'>Email</label>
-                        <Field id='email' name='email' placeholder={ guest.email } />
+                        {/* <label htmlFor='email'>Email</label> */}
+                        <Field id='email' name='email' placeholder='Email' />
                         <hr />
                         
                         {/* Ceremony */}
-                        <p className='rsvpQuestion'>Will you be attending the <strong>Wedding Ceremony and Reception</strong> on Saturday, July 8th? (5pm – late).</p>
+                        <h4>Wedding Ceremony & Reception</h4>
+                        <p className='rsvpQuestion'>Will you be attending the <em>Wedding Ceremony & Reception</em> on Saturday, July 8th? (5pm – late).</p>
 
-                        <label htmlFor='ceremony'>Ceremony & Reception</label>
+                        {/* <label htmlFor='ceremony'>Ceremony & Reception</label> */}
                         <Field as='select' name='ceremony'>
                             <option disabled value=''>Please select</option>
                             <option value='yes'>Yes! I will be attending.</option>
@@ -95,20 +94,20 @@ export default function RsvpForm() {
                         </Field>
 
                         <div style={{display: (showFields ? 'flex' : 'none'), flexDirection: "column", gap: "12px"}}>
-                            <label htmlFor='entre'>What would you like for dinner?</label>
+                            <p className='rsvpQuestion'>What would you like for dinner?</p>
+                            {/* <label htmlFor='entre'>Entré</label> */}
                             <Field as='select' name='entre'>
                                 <option disabled value=''>Please select</option>
                                 <option value='chicken'>Chicken</option>
-                                <option value='steak'>Steak</option>
+                                <option value='steak'>Hanger steak</option>
                                 <option value='vegetarian'>Vegetarian</option>
-                                <option value='surprise'>Surprise me!</option>
                             </Field>
 
                             <hr />
-                            <h4>Optional events</h4> 
+                            <h4>Other events</h4> 
                             
-                            <p className='rsvpQuestion'>Will you be attending the <strong>Welcome Drinks</strong> on Friday, July 7th? (8pm – 12pm)</p>
-                            <label htmlFor='fridayEvent'>Welcome drinks</label>
+                            <p className='rsvpQuestion'>Will you be attending the <em>Welcome Drinks</em> on Friday, July 7th? (8pm – 12pm)</p>
+                            {/* <label htmlFor='fridayEvent'>Welcome drinks</label> */}
                             <Field as='select' id='fridayEvent' name='fridayEvent'>
                                 <option disabled value='' >Please select</option>
                                 <option value='yes'>Yes! I will be attending.</option>
@@ -116,8 +115,8 @@ export default function RsvpForm() {
                                 <option value='maybe'>Put me down as a 'maybe'.</option>
                             </Field>
                             
-                            <p className='rsvpQuestion'>Will you be attending the <strong>Pond brunch</strong> on Sunday, July 9th? (12pm – 2pm)</p>
-                            <label htmlFor='sundayEvent'>Pond brunch</label>
+                            <p className='rsvpQuestion'>Will you be attending the <em>Pond brunch</em> on Sunday, July 9th? (12pm – 2pm)</p>
+                            {/* <label htmlFor='sundayEvent'>Pond brunch</label> */}
                             <Field as='select' id='sundayEvent' name='sundayEvent'>
                                 <option disabled value=''>Please select</option>
                                 <option value='yes'>Yes! I will be attending.</option>

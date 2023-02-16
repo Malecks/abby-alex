@@ -3,6 +3,7 @@ import { addDoc, collection } from 'firebase/firestore'
 import { Formik, Field, Form } from 'formik'
 
 import './Rsvp.css'
+import InviteSearch from './InviteSearch'
 
 function AddParty() {
     const partiesRef = collection(db, 'parties')
