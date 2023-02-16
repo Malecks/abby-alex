@@ -17,9 +17,10 @@ import House from './House'
 import Schedule from './Schedule'
 import Faq from './Faq'
 import Rsvp from './rsvp/Rsvp'
-import RsvpForm, { getGuest } from './rsvp/RsvpForm'
+import RsvpForm, { loadGuest } from './rsvp/RsvpForm'
 import GuestList from './rsvp/GuestList'
 import InviteSearch from './rsvp/InviteSearch'
+import AddGuest from './rsvp/AddGuest'
 
 
 const router = createBrowserRouter(
@@ -37,10 +38,11 @@ const router = createBrowserRouter(
           <Route index element={<InviteSearch />} />
           <Route
             path='/rsvp/:guestId'
-            loader={getGuest}
+            loader={loadGuest}
             element={<RsvpForm />} 
           />
           <Route path='/rsvp/guest-list' element={<GuestList />} />
+          <Route path='/rsvp/add-guest' element={<AddGuest />} />
       </Route>
     </>
   )

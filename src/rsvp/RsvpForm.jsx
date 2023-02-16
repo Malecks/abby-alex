@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from 'react'
 
 import { db } from '../firebase-config'
-import { doc, getDoc, setDoc } from 'firebase/firestore'
+import { doc, setDoc } from 'firebase/firestore'
 import { Formik, Field, Form, useFormikContext } from 'formik'
 
-import './Rsvp.css'
 import { useLoaderData } from 'react-router-dom'
+import { getGuest } from './FirebaseActions'
+
+import './Rsvp.css'
+
+// Loader func
+export const loadGuest = async ({ params }) => {
+    return await getGuest(params.guestId)
+}
 
 export default function RsvpForm() {
     const {guest, guestId} = useLoaderData()
@@ -132,72 +139,3 @@ export default function RsvpForm() {
     )
 }
 
-// Loader func
-class Guest {
-    constructor (
-        party, 
-        first, 
-        last, 
-        email, 
-        fridayEvent, 
-        ceremony, 
-        sundayEvent, 
-        entre, 
-        notes
-    ) {
-        this.party = party
-        this.first = first
-        this.last = last
-        this.email = email
-        this.fridayEvent = fridayEvent
-        this.ceremony = ceremony
-        this.sundayEvent = sundayEvent
-        this.entre = entre
-        this.notes = notes
-    }
-}
-
-const guestConverter = {
-    toFirestore: (guest) => {
-        return {
-            party: guest.party,
-            name: guest.name,
-            first: guest.state,
-            last: guest.last,
-            email: guest.email,
-            fridayEvent: guest.fridayEvent,
-            ceremony: guest.ceremony,
-            sundayEvent: guest.sundayEvent,
-            entre: guest.entre,
-            notes: guest.notes
-        }
-    },
-    fromFirestore: (snapshot, options) => {
-        const data = snapshot.data(options)
-        return new Guest(
-            data.party, 
-            data.first, 
-            data.last, 
-            data.email, 
-            data.fridayEvent, 
-            data.ceremony, 
-            data.sundayEvent, 
-            data.entre, 
-            data.notes
-        )
-    }
-}
-
-export const getGuest = async ({ params }) => {
-    const guestRef = doc(db, 'guests/' + params.guestId).withConverter(guestConverter)
-    const guestSnap = await getDoc(guestRef)
-    if (guestSnap.exists()) {
-        const guest = guestSnap.data()
-        console.log("Document data:", guestSnap.data())
-        console.log(guestRef.id)
-        return { guest: guest, guestId: guestRef.id }
-    } else { 
-        console.log("No document!")
-        return
-    }
-}
