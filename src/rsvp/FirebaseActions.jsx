@@ -1,5 +1,6 @@
 import { db } from '../firebase-config'
-import { doc, addDoc, setDoc, collection, getDoc, getDocs, query, where, limit } from 'firebase/firestore'
+import { doc, addDoc, arrayUnion, collection, getDoc, getDocs, query, where, limit, updateDoc } from 'firebase/firestore'
+import { async } from '@firebase/util'
 
 const partiesRef = collection(db, 'parties')
 const guestsRef = collection(db, 'guests')
@@ -95,12 +96,11 @@ export const addParty = async (newParty) => {
 }
 
 export const addGuest = async (newGuest) => {
-    await addDoc(guestsRef, newGuest)
-    const guestId =  await searchForGuest(newGuest.email)
-    const [partyId, party] = await searchForParty(newGuest.partyName)
-    const partyRef = doc(db, 'parties', partyId)
+    const guest = await addDoc(guestsRef, newGuest)
+    console.log(guest.id)
     
-    await setDoc(partyRef, {guests: [...party.guests, guestId], partyName: party.partyName })
+    const partyRef = doc(db, 'parties', newGuest.party)
+    updateDoc(partyRef, {guests: arrayUnion(guest.id)})
 }
 
 
@@ -145,6 +145,20 @@ export const getGuest = async (guestId) => {
         console.log(guestRef.id)
         return { guest: guest, guestId: guestRef.id }
     } else { 
+        console.log("No document!")
+        return
+    }
+}
+
+export const getParty = async (partyId) => {
+    const partyRef = doc(db, 'parties/' + partyId).withConverter(partyConverter)
+    const partySnap = await getDoc(partyRef)
+    if (partySnap.exists()) {
+        const party = partySnap.data()
+        console.log("Document data:", party)
+        console.log(partyRef.id)
+        return {party: party, partyId: partyRef.id }
+    } else {
         console.log("No document!")
         return
     }

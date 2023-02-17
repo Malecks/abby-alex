@@ -18,7 +18,7 @@ export default class GuestInfo extends React.Component {
         return (
             <div className="guestInfo">
                 <div className="guest">
-                    <h4>{this.first} {this.last}</h4>
+                    <div className="name">{this.first} {this.last}</div>
                     <div className="email">{this.email}</div>
                 </div>
                 <div className={this.attending ? 'attending' : 'notAttending'}>

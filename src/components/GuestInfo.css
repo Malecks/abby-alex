@@ -1,3 +1,8 @@
+body {
+    font-family: 'Noto Serif';
+    color: var(--color-text)
+}
+
 .guestInfo {
     display: flex;
     flex-direction: row;
@@ -7,11 +12,14 @@
 }
 
 .guest {
+    display: flex;
+    flex-direction: column;
     margin-right: auto;
 }
 
-h4 {
-    font-size: larger;
+.guest .name {
+    font-size: large;
+    font-weight: 600;
 }
 
 .email {
@@ -23,16 +31,15 @@ h4 {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 8px 12px;
+    padding: 4px 8px;
     gap: 4px;
 
-    min-height: 50px;
-
+    font-size: small;
     border-radius: 2px;
 }
 
 .attending {
-    background: var(--color-sage10);
+    background: var(--color-cream);
 }
 
 .notAttending {    

@@ -4,7 +4,6 @@ import { addParty, addGuest } from './FirebaseActions'
 import './Rsvp.css'
 
 function AddGuest() {
-    
     return (
         <div className='rsvpWrapper'>
             <h4>Add a party</h4>
@@ -14,7 +13,6 @@ function AddGuest() {
                 }}
                 onSubmit={async (values) => {
                     addParty(values.partyName)
-                    .then()
                 }}
             >
                 {({ isSubmitting }) => (
@@ -39,8 +37,8 @@ function AddGuest() {
                     // entre: '',
                     // notes: ''
                 }}
-                onSubmit={async (values) => {
-                    addGuest({
+                onSubmit={ async (values) => {
+                   await addGuest({
                         party: values.party,
                         first: values.first,
                         last: values.last,
@@ -55,7 +53,7 @@ function AddGuest() {
             >
                 {({ isSubmitting }) => (
                     <Form>
-                        <Field id='party' name='party' placeholder='Party' />
+                        <Field id='party' name='party' placeholder='Party name' />
                         <Field id='first' name='first' placeholder='First name' />
                         <Field id='last' name='last' placeholder='Last name' />
                         <Field id='email' name='email' placeholder='Email' />

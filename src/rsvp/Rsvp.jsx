@@ -1,4 +1,3 @@
-import GuestList from "./GuestList"
 import './Rsvp.css'
 import { NavLink, Outlet } from 'react-router-dom'
 
