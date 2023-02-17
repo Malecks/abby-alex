@@ -1,23 +1,20 @@
 import React, { useState, useEffect } from 'react'
-
-import { db } from '../firebase-config'
-import { collection, getDocs } from 'firebase/firestore'
+import { getGuests } from './FirebaseActions'
 
 import GuestInfo from '../components/GuestInfo'
 import './Rsvp.css'
 
 function GuestList() {
     const [guests, setGuests] = useState([])
-    const guestsRef = collection(db, 'guests')
     
-    const getGuests = async () => {
-        const data = await getDocs(guestsRef)
-        setGuests(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
+    const updateGuests = async () => {
+        const data = await getGuests()
+        setGuests(data)
     }
 
     useEffect(() => {
-        getGuests()
-      }, [])
+        updateGuests()
+    }, [])
     
     return (
         <>

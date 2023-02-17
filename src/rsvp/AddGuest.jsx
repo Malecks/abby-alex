@@ -1,9 +1,22 @@
+import { useEffect, useState } from 'react'
 import { Formik, Field, Form } from 'formik'
-import { addParty, addGuest } from './FirebaseActions'
+import { addParty, addGuest, getParties } from './FirebaseActions'
 
 import './Rsvp.css'
 
 function AddGuest() {
+
+    const [parties, setParties] = useState([])
+
+    const updateParties = async () => {
+        const data = await getParties()
+        setParties(data)
+    }
+
+    useEffect(() => {
+        updateParties()
+    }, [])
+
     return (
         <div className='rsvpWrapper'>
             <h4>Add a party</h4>
@@ -53,7 +66,14 @@ function AddGuest() {
             >
                 {({ isSubmitting }) => (
                     <Form>
-                        <Field id='party' name='party' placeholder='Party name' />
+
+                        <Field as='select' name='party'>
+                            <option disabled value=''>Party name</option>
+                            { parties.map((party) => {
+                             return <option value={party.id} key={party.id}> {party.partyName} </option>
+                            })}
+                        </Field>
+                        {/* <Field id='party' name='party' placeholder='Party name' /> */}
                         <Field id='first' name='first' placeholder='First name' />
                         <Field id='last' name='last' placeholder='Last name' />
                         <Field id='email' name='email' placeholder='Email' />

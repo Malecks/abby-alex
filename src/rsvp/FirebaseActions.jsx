@@ -1,6 +1,5 @@
 import { db } from '../firebase-config'
 import { doc, addDoc, arrayUnion, collection, getDoc, getDocs, query, where, limit, updateDoc } from 'firebase/firestore'
-import { async } from '@firebase/util'
 
 const partiesRef = collection(db, 'parties')
 const guestsRef = collection(db, 'guests')
@@ -162,4 +161,14 @@ export const getParty = async (partyId) => {
         console.log("No document!")
         return
     }
+}
+
+export const getParties = async () => {
+    const data = await getDocs(partiesRef)
+    return data.docs.map((doc) => ({...doc.data(), id: doc.id}))
+}
+
+export const getGuests = async () => {
+    const data = await getDocs(guestsRef)
+    return data.docs.map((doc) => ({...doc.data(), id: doc.id}))
 }
