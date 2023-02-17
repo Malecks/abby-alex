@@ -1,4 +1,4 @@
-body {
+body, a {
     font-family: 'Noto Serif';
     color: var(--color-text)
 }
@@ -6,15 +6,17 @@ body {
 .guestInfo {
     display: flex;
     flex-direction: row;
-    width: 500px;
-    margin: auto;
-    padding: 10px 0px;
+    width: auto;
+    padding: 16px;
+    background-color: white;
+    border-radius: 8px;
+    transition: all 200ms ease-out;
 }
 
 .guest {
     display: flex;
     flex-direction: column;
-    margin-right: auto;
+    width: stretch;
 }
 
 .guest .name {
@@ -26,23 +28,39 @@ body {
     font-size: smaller; 
 }
 
-.attending, .notAttending {
+.attending, .notAttending, .rsvp {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: 4px 8px;
-    gap: 4px;
-
+    min-width: 120px;
     font-size: small;
     border-radius: 2px;
+    color: var(--color-sage80);
 }
 
 .attending {
-    background: var(--color-cream);
+    border: 2px solid var(--color-sage50);
 }
 
 .notAttending {    
-    color: var(--color-cream);
-    background: var(--color-sage80);
+    border: 2px solid var(--color-cream);
+}
+
+.rsvp {
+    color: blue;
+    background-color: white;
+    display: none;
+}
+
+.guestInfo:hover {
+    background-color: #f9f9f9;
+    box-shadow: 0px 2px 4px #444E3920;
+}
+
+.partyList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }

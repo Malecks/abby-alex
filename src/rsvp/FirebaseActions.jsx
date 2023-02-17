@@ -65,7 +65,7 @@ export class Party {
         guests,
         partyName
     ) {
-        this.guets = guests
+        this.guests = guests
         this.partyName = partyName
     }
 }
@@ -110,7 +110,7 @@ export const searchForGuest = async (email) =>  {
     
     const querySnapshot = await getDocs(q)
     if (querySnapshot.empty) {
-        console.log("EMPTY TEMPTY")
+        console.log("Empty Guest search!!")
     }
 
     querySnapshot.forEach((doc) => {
@@ -140,8 +140,8 @@ export const getGuest = async (guestId) => {
     const guestSnap = await getDoc(guestRef)
     if (guestSnap.exists()) {
         const guest = guestSnap.data()
-        console.log("Document data:", guestSnap.data())
-        console.log(guestRef.id)
+        // console.log("Document data:", guestSnap.data())
+        // console.log(guestRef.id)
         return { guest: guest, guestId: guestRef.id }
     } else { 
         console.log("No document!")
@@ -154,11 +154,11 @@ export const getParty = async (partyId) => {
     const partySnap = await getDoc(partyRef)
     if (partySnap.exists()) {
         const party = partySnap.data()
-        console.log("Document data:", party)
-        console.log(partyRef.id)
+        // console.log("Document data:", party)
+        // console.log(partyRef.id)
         return {party: party, partyId: partyRef.id }
     } else {
-        console.log("No document!")
+        console.log("No Party Document!")
         return
     }
 }

@@ -21,6 +21,7 @@ import RsvpForm, { loadGuest } from './rsvp/RsvpForm'
 import GuestList from './rsvp/GuestList'
 import InviteSearch from './rsvp/InviteSearch'
 import AddGuest from './rsvp/AddGuest'
+import YourParty, { loadGuest as loadPartyGuest } from './rsvp/YourParty'
 
 
 const router = createBrowserRouter(
@@ -43,6 +44,10 @@ const router = createBrowserRouter(
           />
           <Route path='/rsvp/guest-list' element={<GuestList />} />
           <Route path='/rsvp/add-guest' element={<AddGuest />} />
+          <Route 
+            path='/rsvp/your-party/:guestId' 
+            loader={ loadPartyGuest }
+            element={<YourParty />} />
       </Route>
     </>
   )

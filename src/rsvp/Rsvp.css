@@ -13,7 +13,7 @@ body {
 }
 
 .rsvpWrapper {
-    max-width: 400px;
+    max-width: 450px;
     margin: 2em auto;
     padding: 0 .5em;
 }
@@ -128,4 +128,10 @@ hr {
     font-size: large;
     font-family: 'Noto Serif';
     line-height: 160%;
+}
+
+.yourParty {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
