@@ -36,7 +36,7 @@ export default function YourParty() {
             <div className='partyList'>
                 { guests.map((partyGuest) => {
                     return (
-                        <Link to={"/rsvp/" + partyGuest.guestId}>
+                        <Link to={"/rsvp/" + partyGuest.guestId} key={partyGuest.guestId}>
                             <GuestInfo 
                                 key={partyGuest.guestId}
                                 first={partyGuest.guest.first} 

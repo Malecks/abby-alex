@@ -22,7 +22,7 @@ export default function InviteSearch () {
         querySnapshot.forEach((doc) => {
             console.log(doc.id, " => ", doc.data())
             setPrompt('')
-            navigate(doc.id)
+            navigate("your-party/" + doc.id)
         })
     }
 

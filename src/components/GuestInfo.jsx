@@ -5,7 +5,6 @@ import "./GuestInfo.css";
 export default class GuestInfo extends React.Component {
     constructor(props) {
         super(props)
-        
         this.first = props.first
         this.last = props.last
         this.email = props.email
