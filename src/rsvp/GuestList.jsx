@@ -18,7 +18,7 @@ function GuestList() {
         var attendingCount = 0
         for (let index = 0; index < data.length; index++) {
             const guest = data[index];
-            if (guest.ceremony == 'yes') {
+            if (guest.ceremony === 'yes') {
                 attendingCount ++
             }
         }

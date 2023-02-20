@@ -21,10 +21,11 @@ body {
 h1 { 
     text-align: center;
     color: var(--color-text);
+    margin-bottom: 1em;
 }
 
 h4 {
-    margin: 0.5em 0;
+    font-size: 24px;
     color: var(--color-sage50)
 }
 
@@ -33,64 +34,7 @@ form {
     flex-direction: column;
     margin-bottom: 0.5em;
     margin-top: 2em;
-    gap: 12px;
-}
-
-label {
-    font-size: medium;
-    font-family: 'Noto serif';
-    color: var(--color-grey40);
-}
-
-input, select {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 4px 16px;
-    margin-bottom: 1em;
-    gap: 4px;
-
-    height: 64px;
-    width: stretch;
-
-    background: var(--color-grey10);
-    border-radius: 4px;
-    border: none;
-
-    font-style: normal;
-    font-size: large;
-}
-
-input::placeholder {
-    color: var(--color-text-placeholder);
-}
-
-button {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 4px 12px;
-    gap: 4px;
-    
-    height: 56px;
-    width: stretch;
-        
-    background-color: var(--color-sage50);
-    border-radius: 4px;
-    border: none;
-
-    font-family: 'Noto Serif';
-    font-size: large;
-    color: var(--color-cream);
-}
-
-button:hover {
-    background-color: var(--color-sage65);
-}
-
-button:active {
-    background-color: var(--color-sage80);
+    gap: 36px;
 }
 
 hr {
@@ -109,12 +53,19 @@ hr {
 }
 
 .rsvpQuestion {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 1em;
     font-family: 'Noto Serif';
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
-    line-height: 28px;
-    margin: 1em 0 0 0;
+    font-size: 17px;
+}
+
+.rsvpSubheader {
+    font-size: 14px;
+    color: #7A878C
 }
 
 .extraFields {
