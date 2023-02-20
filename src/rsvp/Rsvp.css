@@ -18,28 +18,43 @@ body {
     padding: 0 .5em;
 }
 
+#overlay {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin:  auto;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255,255,255,0.95);
+    z-index: 2;
+    cursor: pointer;
+}
+
 h1 { 
     text-align: center;
-    color: var(--color-text);
-    margin-bottom: 1em;
 }
 
 h4 {
-    font-size: 24px;
     color: var(--color-sage50)
 }
 
 form {
     display: flex;
     flex-direction: column;
-    margin-bottom: 0.5em;
     margin-top: 2em;
     gap: 36px;
 }
 
 hr {
-    margin: 1em 0;
-    border: 0.5px solid var(--color-cream);
+    margin: 0.5em 0;
+    border: 1px solid var(--color-cream);
 }
 
 #first-last {

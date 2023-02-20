@@ -6,11 +6,12 @@ import { CssVarsProvider } from '@mui/joy/styles';
 import { rsvpTheme } from './MuiTheme';
 import { Box, Input, Button, Radio, RadioGroup, FormControl, FormLabel, FormHelperText} from '@mui/joy'
 
-import { useLoaderData } from 'react-router-dom'
+import { useLoaderData, useNavigate } from 'react-router-dom'
+
 import { getGuest } from './FirebaseActions'
 
-// import '@fontsource/public-sans';
 import './Rsvp.css'
+import { useState } from 'react';
 
 // Loader func
 export const loadGuest = async ({ params }) => {
@@ -31,6 +32,14 @@ export const loadGuest = async ({ params }) => {
 export default function RsvpForm() {
     const {guest, guestId} = useLoaderData()
 
+    const navigate = useNavigate()
+
+    const [isSubmitting, setIsSubmitting] = useState(false)
+
+    function timeout(delay) {
+        return new Promise( res => setTimeout(res, delay) );
+    }
+
     const formik = useFormik({
         initialValues: {
             party: guest.party ?? '',
@@ -45,8 +54,12 @@ export default function RsvpForm() {
         },
         // validationSchema: validationSchema,
         onSubmit: async (values) => {
-            console.log(values)
-            // addGuest(values)
+            setIsSubmitting(true)
+            // console.log(values)
+            await addGuest(values)
+            await timeout(500)
+            navigate("/rsvp/your-party/" + guestId)
+            setIsSubmitting(false)
         },
     });
 
@@ -66,6 +79,16 @@ export default function RsvpForm() {
     }
 
     return (
+        <>
+        <div 
+            id="overlay" 
+            style={{...{
+                display: (isSubmitting ? "flex" : "none"), 
+            }}}
+        >
+            <h2> Submitting...</h2>
+            <p>Thanks for your response!</p>
+        </div>
         <div className='rsvpWrapper'>            
             <h1>{ guest.first ? (guest.first + ", you're invited!") : "You're invited!" }</h1>
             <CssVarsProvider theme={rsvpTheme}>
@@ -75,18 +98,16 @@ export default function RsvpForm() {
                     <Box sx={{ display:'flex', flexDirection:'column', gap: '12px' }}>
                         <Input 
                             size='lg'
-                            // variant='soft'
                             id='first'
                             value={formik.values.first}
                             onChange={formik.handleChange}
                             error={formik.touched.first && Boolean(formik.errors.first)}
-                            placeholder={guest.first}
+                            placeholder='First name'
                             // helperText={formik.touched.first && formik.errors.first}
                         />
 
                         <Input 
                             size='lg'
-                            // variant='soft'
                             id='last' 
                             value={formik.values.last}
                             onChange={formik.handleChange}
@@ -97,7 +118,6 @@ export default function RsvpForm() {
 
                         <Input 
                             size='lg'
-                            // variant='soft'
                             id='email'
                             value={formik.values.email}
                             onChange={formik.handleChange}
@@ -107,7 +127,7 @@ export default function RsvpForm() {
                         />
                     </Box>
                     <hr/>
-                    <h4>Wedding Ceremony & Reception</h4>
+                    <h4>Répondez s'il vous plaît</h4>
 
                     <RadioGroup
                         name='ceremony'
@@ -132,14 +152,19 @@ export default function RsvpForm() {
                         </FormControl>
                     </RadioGroup>
 
-                    <div style={{display: (formik.values.ceremony==='yes' ? 'flex' : 'none'), flexDirection: "column", gap: "36px"}}>
+                    <div 
+                        style={{
+                            display: (formik.values.ceremony==='yes' ? 'flex' : 'none'), 
+                            flexDirection: "column", 
+                            gap: "36px",
+                        }}>
                         <RadioGroup 
                             name='entre'
                             onChange={formik.handleChange}
                             value={formik.values.entre}
                         >
                             <div className='rsvpQuestion'>
-                                <p className='rsvpSubheader'>What would you like for dinner?</p>
+                                <p>What would you like for dinner?</p>
                             </div>
                             <FormControl>
                                 <Radio
@@ -240,6 +265,7 @@ export default function RsvpForm() {
                 </form>
             </CssVarsProvider>
         </div>
+        </>
     )
 }
 

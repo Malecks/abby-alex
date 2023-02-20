@@ -45,7 +45,6 @@ export const rsvpTheme = extendTheme({
       JoyButton: {
         styleOverrides: {
           root: ({ ownerState }) => ({
-            transition: 'all 200ms ease-in-out',
             borderRadius: '8px',
             fontWeight: 400,
             ...(ownerState.size === 'md' && {
@@ -59,6 +58,7 @@ export const rsvpTheme = extendTheme({
             '&:active': {
               transform: 'translateY(1px)',
             },
+            transition: 'all 150ms ease-in-out',
           }),
         },
       },
@@ -77,15 +77,19 @@ export const rsvpTheme = extendTheme({
                 gap: '12px',
                 padding: '20px 16px',
                 borderRadius: '8px',
-                boxShadow: '0px 4px 20px rgba(0, 15, 0, 0.03)',
+                boxShadow: '0px 2px 20px rgba(0, 15, 0, 0.03)',
                 '&:hover': {
                     boxShadow: '0px 4px 20px rgba(0, 15, 0, 0.10)',
                 },
                 '&:active': {
                     transform: 'translateY(1px)',
-                    backgroundColor: '#f8f8f8'
+                    backgroundColor: '#f8f8f8',
+                    boxShadow: '0px 0px 10px rgba(0, 15, 0, 0.05)',
                 },
-                transition: 'all 200ms ease-in-out',
+                '&:selected': {
+                    backgroundColor: 'red',
+                },
+                transition: 'all 150ms ease-in-out',
             })
         }
       }
