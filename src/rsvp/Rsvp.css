@@ -35,6 +35,14 @@ form {
     gap: 36px;
 }
 
+#party {
+    padding: 12px 12px;
+    border-radius: 8px;
+    border: 1px solid lightgray;
+    font-family: 'Noto serif';
+    font-size: medium;
+}
+
 hr {
     margin: 0.5em 0;
     border: 1px solid var(--color-cream);
