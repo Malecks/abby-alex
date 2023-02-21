@@ -1,6 +1,6 @@
 import React from "react"
 
-export default Error = () => {
+export default function ErrorPage() {
     return (
         <div id="overlay">
             <h1>Uh-oh.</h1>

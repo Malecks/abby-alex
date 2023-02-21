@@ -22,13 +22,13 @@ import GuestList from './rsvp/GuestList'
 import InviteSearch from './rsvp/InviteSearch'
 import AddGuest from './rsvp/AddGuest'
 import YourParty, { loadGuest as loadPartyGuest } from './rsvp/YourParty'
-import Error from './Error'
+import ErrorPage from './ErrorPage'
 
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path='/' element={<Home />} errorElement={<Error />}>
+      <Route path='/' element={<Home />} errorElement={<ErrorPage />}>
         <Route path='/accomodation' element={<Accomodation />} />
         <Route path='/guide' element={<Guide />} />
         <Route path='/house' element={<House />} />
@@ -36,7 +36,7 @@ const router = createBrowserRouter(
         <Route path='/faq' element={<Faq />} />
       </Route>
       
-      <Route path='/rsvp' element={<Rsvp />} errorElement={<Error />}>
+      <Route path='/rsvp' element={<Rsvp />} errorElement={<ErrorPage />}>
           <Route index element={<InviteSearch />} />
           <Route
             path='/rsvp/:guestId'
