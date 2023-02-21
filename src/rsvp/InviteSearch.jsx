@@ -2,11 +2,33 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { db } from '../firebase-config'
 import { collection, query, where, getDocs, limit } from "firebase/firestore";
-import { Formik, Field, Form } from 'formik'
+import { useFormik } from 'formik'
+
+import { CssVarsProvider } from '@mui/joy/styles';
+import { rsvpTheme } from './MuiTheme';
+import { Input, Button } from '@mui/joy'
 
 export default function InviteSearch () {
-    const [prompt, setPrompt] = useState('')
+    const Searching = {
+        yes: 'Searching...',
+        no: 'Search for your invite by email address',
+        error: "Sorry, we couldn't find an invite with that email address."
+    }
+
+    const [searching, setSearching] = useState(Searching.no)
+
     const navigate = useNavigate()
+
+    const formik = useFormik({
+        initialValues: {
+            email: '',
+        },
+        // validationSchema: validationSchema,
+        onSubmit: async (values) => {
+            setSearching(Searching.yes)
+            searchForInvite(values.email)
+        },
+    });
 
     const searchForInvite = async (email) => {
         console.log(email)
@@ -15,40 +37,35 @@ export default function InviteSearch () {
        
         const querySnapshot = await getDocs(q)
         if (querySnapshot.empty) {
-            console.log("EMPTY TEMPTY")
-            setPrompt("Sorry we couldn't find an invite associated with that email address.")
+            setSearching(Searching.error)
         }
 
         querySnapshot.forEach((doc) => {
             console.log(doc.id, " => ", doc.data())
-            setPrompt('')
             navigate("your-party/" + doc.id)
         })
     }
 
-    return (
-        <>
-            <header id='rsvpHeader'>
-                <h1>RSVP</h1>
+    return (<>
+        <header>
+            <h1>RSVP</h1>
+            <p className='prompt'>{searching}</p>
             </header>
-            <p className='prompt'>{prompt}</p>
-            <Formik
-                initialValues={{
-                    email:'',
-                }}
-                onSubmit={async (values) => {
-                    setPrompt('Searching...')
-                    searchForInvite(values.email)
-                }}
-            >
-                {({ isSubmitting }) => (
-                    <Form>
-                        <label htmlFor='email'>Email</label>
-                        <Field id='email' name='email' placeholder='your.name@gmail.com' />
-                        <button type='submit' disabled={isSubmitting}>Search</button>
-                    </Form>
-                )}
-            </Formik>
-        </>
-    )
+        <CssVarsProvider theme={rsvpTheme}>
+
+
+            <form onSubmit={formik.handleSubmit}>
+                <Input 
+                    size='lg'
+                    id='email'
+                    value={formik.values.email}
+                    onChange={formik.handleChange}
+                    error={formik.touched.email && Boolean(formik.errors.email)}
+                    placeholder='Email'
+                    // helperText={formik.touched.first && formik.errors.first}
+                />
+                <Button type='submit'>Search</Button>
+            </form>
+        </CssVarsProvider>
+    </>)
 }

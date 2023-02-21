@@ -86,7 +86,7 @@ export default function RsvpForm() {
                 display: (isSubmitting ? "flex" : "none"), 
             }}}
         >
-            <h2> Submitting...</h2>
+            <h4> Submitting...</h4>
             <p>Thanks for your response!</p>
         </div>
         <div className='rsvpWrapper'>            

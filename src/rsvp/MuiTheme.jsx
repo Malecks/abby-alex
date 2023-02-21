@@ -48,9 +48,8 @@ export const rsvpTheme = extendTheme({
             borderRadius: '8px',
             fontWeight: 400,
             ...(ownerState.size === 'md' && {
-              minHeight: '50px',
               fontSize: '20px',
-              padding: '18px 24px',
+              padding: '16px 24px',
             }),
             '&:hover': {
                 boxShadow: '0px 4px 20px rgba(0, 15, 0, 0.10)',
