@@ -33,7 +33,7 @@ export default class GuestInfo extends React.Component {
                     <div className="name">{this.first} {this.last}</div>
                     <div className="email">{this.email}</div>
                 </div>
-                <div className={(this.attending=='no' || this.attending=='') ? 'notAttending' : 'attending'}>
+                <div className={(this.attending==='no' || this.attending==='') ? 'notAttending' : 'attending'}>
                     {attendingString(this.attending)}
                 </div>
                 <div className="rsvp">
