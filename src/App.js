@@ -3,7 +3,7 @@ import React from 'react'
 
 
 import {
-  createBrowserRouter, 
+  createHashRouter, 
   createRoutesFromElements,
   Route, 
   RouterProvider
@@ -25,7 +25,7 @@ import YourParty, { loadGuest as loadPartyGuest } from './rsvp/YourParty'
 import ErrorPage from './ErrorPage'
 
 
-const router = createBrowserRouter(
+const router = createHashRouter(
   createRoutesFromElements(
     <>
       <Route path='/' element={<Home />} errorElement={<ErrorPage />}>
