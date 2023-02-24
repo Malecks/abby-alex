@@ -1,0 +1,96 @@
+body {
+    color: var(--color-text);
+}
+
+#rsvpNav {
+    background-color: white;
+    align-items: left;
+    justify-content: left;
+}
+
+#rsvpNav a {
+    font-size: medium;
+}
+
+.rsvpWrapper {
+    max-width: 450px;
+    margin: 2em auto;
+    padding: 0 .5em;
+}
+
+h1 { 
+    font-size: 2.35em;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+h4 {
+    color: var(--color-sage50)
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+    gap: 36px;
+}
+
+#party {
+    padding: 12px 12px;
+    border-radius: 8px;
+    border: 1px solid lightgray;
+    font-family: 'Noto serif';
+    font-size: medium;
+}
+
+hr {
+    margin: 0.5em 0;
+    border: 1px solid var(--color-cream);
+}
+
+#first-last {
+    display: flex;
+    flex-direction: row;
+}
+
+#first-last :last-child input {
+    margin-right: 0px;
+    width: 100%;
+}
+
+.rsvpQuestion {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 1em;
+    font-family: 'Noto Serif';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.rsvpSubheader {
+    font-size: 14px;
+    color: #7A878C
+}
+
+.extraFields {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.prompt {
+    margin: 1em 0;
+    /* font-size: large; */
+    font-family: 'Noto Serif';
+    line-height: 160%;
+    text-align: center;
+    color: var(--color-grey40);
+}
+
+.yourParty {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}

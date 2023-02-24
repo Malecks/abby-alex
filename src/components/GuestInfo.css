@@ -1,0 +1,66 @@
+body, a {
+    font-family: 'Noto Serif';
+    color: var(--color-text)
+}
+
+.guestInfo {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    padding: 16px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 2px 20px rgba(0, 15, 0, 0.03);
+    transition: all 200ms ease-out;
+}
+
+.guest {
+    display: flex;
+    flex-direction: column;
+    width: stretch;
+}
+
+.guest .name {
+    font-size: large;
+}
+
+.email {
+    font-size: smaller; 
+    color: var(--color-grey40)
+}
+
+.attending, .notAttending, .rsvp {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 8px;
+    min-width: 120px;
+    font-size: small;
+    border-radius: 2px;
+    color: var(--color-sage80);
+}
+
+.attending {
+    border: 2px solid var(--color-sage50);
+}
+
+.notAttending {    
+    border: 2px solid var(--color-cream);
+}
+
+.rsvp {
+    color: blue;
+    background-color: white;
+    display: none;
+}
+
+.guestInfo:hover {
+    box-shadow: 0px 4px 20px rgba(0, 15, 0, 0.10);
+}
+
+.partyList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}

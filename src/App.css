@@ -16,8 +16,12 @@
 :root {
   --color-sage10: #B2C29E;
   --color-sage50: #8A9A77;
+  --color-sage65: #647056;
   --color-sage80: #444E39;
   --color-cream: #F4F2E9;
+  --color-grey10: #f5f5f5;
+  --color-grey40: #7A878C;
+  --color-text-placeholder: #aeb0ab;
   --color-text: #20260C;
 }
 
@@ -134,7 +138,7 @@ li {
   flex: 1;
 }
 
-header {
+#mainHeader {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -148,18 +152,18 @@ header {
   transition: padding ease-in-out 250ms;
 }
 
-.small header {
+.small #mainHeader {
   padding: 1.5em;
   border: var(--color-sage50) solid 4px;
 }
 
-header h3 {
+#mainHeader h3 {
   font-size: 1.75em;
   color: var(--color-sage80);
   text-align: center;
 }
 
-.small header h3 {
+.small #mainHeader h3 {
   display: none;
 }
 
@@ -224,25 +228,23 @@ nav ul {
   padding: 0;
   display: flex;
   list-style: none;
+  gap: 2em;
 }
 
 
 nav a {
-  margin: 0 1em;
-  margin-bottom: 2px;
   padding: 0.5em 0.25em;
+  color: var(--color-text);
+}
+
+nav li {
+  margin: 0 0 2px 0;
+  padding: 0;
   font-family: 'Noto Serif';
   font-style: italic;
   font-weight: 400;
   font-size: 20px;
   line-height: 27px;
-  transition: all 100ms ease-out;
-  color: var(--color-text);
-}
-
-nav li {
-  margin: 0;
-  padding: 0;
   transition: all 100ms ease-out;
 }
 
@@ -331,6 +333,29 @@ nav a.active:hover {
 
 .schedule h3 {
   padding: .5em 0em;
+}
+
+#overlay {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin:  auto;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(255,255,255,0.95);
+  z-index: 2;
+}
+
+#overlay a {
+  text-decoration: underline;
+  color: var(--color-sage50)
 }
 
 @media (max-width: 700px) {
