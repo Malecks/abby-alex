@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.2942f8c0.css",
+    "main.css": "/static/css/main.cb292327.css",
     "main.js": "/static/js/main.846fb800.js",
     "static/media/eville_toille.png": "/static/media/eville_toille.18a4b4a5af00db73c23f.png",
     "static/media/Ellicottville_House_2.png": "/static/media/Ellicottville_House_2.761323c7e57304948ddb.png",
     "static/media/Bastia-Bold.woff": "/static/media/Bastia-Bold.0f74bc002818d5f202b4.woff",
     "static/media/Bastia-Bold.woff2": "/static/media/Bastia-Bold.5eb077f42b51504e47c3.woff2",
     "index.html": "/index.html",
-    "main.2942f8c0.css.map": "/static/css/main.2942f8c0.css.map",
+    "main.cb292327.css.map": "/static/css/main.cb292327.css.map",
     "main.846fb800.js.map": "/static/js/main.846fb800.js.map"
   },
   "entrypoints": [
-    "static/css/main.2942f8c0.css",
+    "static/css/main.cb292327.css",
     "static/js/main.846fb800.js"
   ]
 }
