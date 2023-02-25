@@ -382,7 +382,6 @@ nav a.active:hover {
 
   header {
     padding: 1em;
-    background-color: var(--color-sage10);
     transition: padding ease-in-out 250ms;
   }
 

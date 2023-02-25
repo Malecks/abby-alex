@@ -4,7 +4,7 @@ import { useFormik } from 'formik'
 
 import { CssVarsProvider } from '@mui/joy/styles';
 import { rsvpTheme } from './MuiTheme';
-import { Box, Input, Button, Radio, RadioGroup, FormControl, FormLabel, FormHelperText} from '@mui/joy'
+import { Box, Input, Button, Radio, RadioGroup, FormControl, FormLabel, FormHelperText, Textarea, Divider} from '@mui/joy'
 
 import { useLoaderData, useNavigate } from 'react-router-dom'
 
@@ -12,22 +12,12 @@ import { getGuest } from './FirebaseActions'
 
 import './Rsvp.css'
 import { useState } from 'react';
+import { padding } from '@mui/system';
 
 // Loader func
 export const loadGuest = async ({ params }) => {
     return await getGuest(params.guestId)
 }
-
-// const validationSchema = yup.object({
-//     email: yup
-//       .string('Enter your email')
-//       .email('Enter a valid email')
-//       .required('Email is required'),
-//     password: yup
-//       .string('Enter your password')
-//       .min(8, 'Password should be of minimum 8 characters length')
-//       .required('Password is required'),
-//   });
 
 export default function RsvpForm() {
     const {guest, guestId} = useLoaderData()
@@ -52,7 +42,18 @@ export default function RsvpForm() {
             entre: guest.entre ?? '',
             notes: guest.notes ?? '',
         },
-        // validationSchema: validationSchema,
+        validate: (values) =>{
+            let errors = {};
+            if(!values.first){
+                errors.first = 'First name is required'
+            } 
+            if(!values.email){
+                errors.email= 'Email is required!'
+            } else if(!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i.test(values.email)){
+                errors.email = 'Invalid email format!'
+            }
+            return errors;
+        },
         onSubmit: async (values) => {
             setIsSubmitting(true)
             // console.log(values)
@@ -93,7 +94,7 @@ export default function RsvpForm() {
             <h1>{ guest.first ? (guest.first + ", you're invited!") : "You're invited!" }</h1>
             <CssVarsProvider theme={rsvpTheme}>
                 <form onSubmit={formik.handleSubmit}>
-                    <hr />
+                    <Divider />
                     <h4>Guest information</h4>
                     <Box sx={{ display:'flex', flexDirection:'column', gap: '12px' }}>
                         <Input 
@@ -103,7 +104,7 @@ export default function RsvpForm() {
                             onChange={formik.handleChange}
                             error={formik.touched.first && Boolean(formik.errors.first)}
                             placeholder='First name'
-                            // helperText={formik.touched.first && formik.errors.first}
+                            required
                         />
 
                         <Input 
@@ -113,20 +114,20 @@ export default function RsvpForm() {
                             onChange={formik.handleChange}
                             error={formik.touched.last && Boolean(formik.errors.last)}
                             placeholder='Last name'
-                            // helperText={formik.touched.last && formik.errors.last}
+                            required
                         />
 
-                        <Input 
+                        <Input                             
                             size='lg'
                             id='email'
                             value={formik.values.email}
                             onChange={formik.handleChange}
                             error={formik.touched.email && Boolean(formik.errors.email)}
                             placeholder='Email'
-                            // helperText={formik.touched.email && formik.errors.email}
+                            required
                         />
                     </Box>
-                    <hr/>
+                    <Divider />
                     <h4>Répondez s'il vous plaît</h4>
 
                     <RadioGroup
@@ -200,8 +201,7 @@ export default function RsvpForm() {
                             </FormControl>
                         </RadioGroup>
 
-
-                        <hr />
+                        <Divider />
                         <h4>Other events</h4>
                         <RadioGroup
                             name='fridayEvent'
@@ -260,6 +260,17 @@ export default function RsvpForm() {
                                 />
                             </FormControl>
                         </RadioGroup>
+
+                        <Divider />
+                        <Textarea
+                            variant='soft' 
+                            name='notes'
+                            onChange={formik.handleChange}
+                            value={formik.values.notes}
+                            placeholder='Any special requests, dietary restrictions, etc.'
+                            minRows={3}
+                            maxRows={3}
+                        />
                     </div>
                     <Button type='submit'>Submit</Button>
                 </form>

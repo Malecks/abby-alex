@@ -26,7 +26,7 @@ export default function InviteSearch () {
         // validationSchema: validationSchema,
         onSubmit: async (values) => {
             setSearching(Searching.yes)
-            searchForInvite(values.email)
+            searchForInvite(values.email.toLowerCase())
         },
     });
 
@@ -62,7 +62,6 @@ export default function InviteSearch () {
                     onChange={formik.handleChange}
                     error={formik.touched.email && Boolean(formik.errors.email)}
                     placeholder='Email'
-                    // helperText={formik.touched.first && formik.errors.first}
                 />
                 <Button type='submit'>Search</Button>
             </form>
