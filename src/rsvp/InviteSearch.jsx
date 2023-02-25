@@ -25,8 +25,11 @@ export default function InviteSearch () {
         },
         // validationSchema: validationSchema,
         onSubmit: async (values) => {
+            var email = values.email
+            email = email.trim()
+            email = email.toLowerCase()
             setSearching(Searching.yes)
-            searchForInvite(values.email.toLowerCase())
+            searchForInvite(email)
         },
     });
 
