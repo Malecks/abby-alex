@@ -74,13 +74,14 @@ function AddGuest() {
             </form>
             <Divider sx={{marginTop: 4, marginBottom: 4}}/>
             <h4>Add a guest</h4>
-            <form onSubmit={formikAddGuest.handleSubmit}>
+            <form onSubmit={formikAddGuest.handleSubmit} required>
                 <select 
                     as="select" 
                     size='lg'
                     id='party'
                     onChange={formikAddGuest.handleChange}
                 >
+                    <option disabled selected value>----- Select party -------</option>
                     { parties.map((party) => {
                         return <option value={party.id} key={party.id}> {party.partyName} </option>
                     })}
