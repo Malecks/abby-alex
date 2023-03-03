@@ -210,7 +210,7 @@ export default function RsvpForm() {
                         >
                             <div className='rsvpQuestion'>
                                 <p>Welcome drinks</p>
-                                <p className='rsvpSubheader'>Friday, July 7th (8pm – 12pm).</p>
+                                <p className='rsvpSubheader'>Friday, July 7th (8pm – 10pm).</p>
                             </div>
                             <FormControl>
                                 <Radio 

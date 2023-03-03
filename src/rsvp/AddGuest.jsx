@@ -80,8 +80,9 @@ function AddGuest() {
                     size='lg'
                     id='party'
                     onChange={formikAddGuest.handleChange}
+                    value={formikAddGuest.values.par}
                 >
-                    <option disabled selected value>----- Select party -------</option>
+                    <option selected value>----- Select party -------</option>
                     { parties.map((party) => {
                         return <option value={party.id} key={party.id}> {party.partyName} </option>
                     })}
