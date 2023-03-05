@@ -12,7 +12,6 @@ import { getGuest } from './FirebaseActions'
 
 import './Rsvp.css'
 import { useState } from 'react';
-import { padding } from '@mui/system';
 
 // Loader func
 export const loadGuest = async ({ params }) => {
@@ -80,7 +79,7 @@ export default function RsvpForm() {
     }
 
     return (
-        <>
+        <div className="rsvpWrapper">
         <div 
             id="overlay" 
             style={{...{
@@ -276,7 +275,7 @@ export default function RsvpForm() {
                 </form>
             </CssVarsProvider>
         </div>
-        </>
+        </div>
     )
 }
 

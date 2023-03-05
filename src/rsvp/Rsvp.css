@@ -90,6 +90,7 @@ hr {
 
 .yourParty {
     display: flex;
+    margin: 2em 0;
     flex-direction: column;
-    gap: 24px;
+    gap: 12px;
 }

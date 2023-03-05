@@ -49,25 +49,25 @@ export default function InviteSearch () {
         })
     }
 
-    return (<>
-        <header>
-            <h1>RSVP</h1>
-            <p className='prompt'>{searching}</p>
+    return (
+        <div className="rsvpWrapper">
+            <header>
+                <h1>RSVP</h1>
+                <p className='prompt'>{searching}</p>
             </header>
-        <CssVarsProvider theme={rsvpTheme}>
-
-
-            <form onSubmit={formik.handleSubmit}>
-                <Input 
-                    size='lg'
-                    id='email'
-                    value={formik.values.email}
-                    onChange={formik.handleChange}
-                    error={formik.touched.email && Boolean(formik.errors.email)}
-                    placeholder='Email'
-                />
-                <Button type='submit'>Search</Button>
-            </form>
-        </CssVarsProvider>
-    </>)
+            <CssVarsProvider theme={rsvpTheme}>
+                <form onSubmit={formik.handleSubmit}>
+                    <Input 
+                        size='lg'
+                        id='email'
+                        value={formik.values.email}
+                        onChange={formik.handleChange}
+                        error={formik.touched.email && Boolean(formik.errors.email)}
+                        placeholder='Email'
+                    />
+                    <Button type='submit'>Search</Button>
+                </form>
+            </CssVarsProvider>
+        </div>
+    )
 }

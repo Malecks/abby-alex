@@ -18,9 +18,9 @@ import Schedule from './Schedule'
 import Faq from './Faq'
 import Rsvp from './rsvp/Rsvp'
 import RsvpForm, { loadGuest } from './rsvp/RsvpForm'
-import GuestList from './rsvp/GuestList'
+import GuestList from './mng/GuestList'
 import InviteSearch from './rsvp/InviteSearch'
-import AddGuest from './rsvp/AddGuest'
+import AddGuest from './mng/AddGuest'
 import YourParty, { loadGuest as loadPartyGuest } from './rsvp/YourParty'
 import ErrorPage from './ErrorPage'
 
@@ -43,12 +43,15 @@ const router = createHashRouter(
             loader={loadGuest}
             element={<RsvpForm />} 
           />
-          <Route path='/rsvp/guest-list' element={<GuestList />} />
           <Route path='/rsvp/add-guest' element={<AddGuest />} />
           <Route 
             path='/rsvp/your-party/:guestId' 
             loader={ loadPartyGuest }
             element={<YourParty />} />
+      </Route>
+
+      <Route path='/mng' element={<Rsvp />} errorElement={<ErrorPage />}>
+        <Route index element={<GuestList />} />
       </Route>
     </>
   )

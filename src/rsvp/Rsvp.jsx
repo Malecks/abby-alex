@@ -9,7 +9,7 @@ function Rsvp () {
                     <li><NavLink to="/" className={({ isActive }) => isActive ? 'active' : null }>{"← Wedding website"}</NavLink></li>
                 </ul>
             </nav>
-            <div className="rsvpWrapper">
+            <div>
                 <Outlet>
                 </Outlet>
             </div>

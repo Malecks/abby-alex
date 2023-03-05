@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useFormik } from 'formik'
-import { addParty, addGuest, getParties } from './FirebaseActions'
+import { addParty, addGuest, getParties } from '../rsvp/FirebaseActions'
 
 import { CssVarsProvider } from '@mui/joy/styles';
-import { rsvpTheme } from './MuiTheme';
+import { rsvpTheme } from '../rsvp/MuiTheme';
 import { Input, Button, Divider } from '@mui/joy'
-
-import './Rsvp.css'
 
 function AddGuest() {
 

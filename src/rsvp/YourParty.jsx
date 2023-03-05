@@ -31,9 +31,11 @@ export default function YourParty() {
     }, [])
     
     return (
-        <div className='yourParty'>
-            <h1>Your party</h1>
-            <div className='partyList'>
+        <div className="rsvpWrapper">
+            <header>
+                <h1>Your party</h1>
+            </header>
+            <div className='yourParty'>
                 { guests.map((partyGuest) => {
                     return (
                         <Link to={"/rsvp/" + partyGuest.guestId} key={partyGuest.guestId}>
