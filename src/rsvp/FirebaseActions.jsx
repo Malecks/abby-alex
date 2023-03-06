@@ -1,5 +1,5 @@
 import { db } from '../firebase-config'
-import { doc, addDoc, arrayUnion, collection, getDoc, getDocs, query, where, limit, updateDoc } from 'firebase/firestore'
+import { doc, addDoc, arrayUnion, collection, getDoc, getDocs, query, where, limit, updateDoc, orderBy } from 'firebase/firestore'
 
 const partiesRef = collection(db, 'parties')
 const guestsRef = collection(db, 'guests')
@@ -169,6 +169,7 @@ export const getParties = async () => {
 }
 
 export const getGuests = async () => {
-    const data = await getDocs(guestsRef)
+    const q = query(guestsRef, orderBy("party"))
+    const data = await getDocs(q)
     return data.docs.map((doc) => ({...doc.data(), id: doc.id}))
 }

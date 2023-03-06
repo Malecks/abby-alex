@@ -41,8 +41,8 @@ function GuestList() {
     
     return (
         <>
-            <h1>Guest list</h1>
-            <h5 style={{textAlign:'center'}}>{"Attending: " + attending}</h5>
+            <h3 style={{textAlign: 'center'}}>{"Attending: " + attending }</h3>
+            <h5 style={{textAlign: 'center'}}>{"Invited: " + guests.length}</h5>
             <Table>
                 <thead>
                     <tr>

@@ -43,7 +43,6 @@ const router = createHashRouter(
             loader={loadGuest}
             element={<RsvpForm />} 
           />
-          <Route path='/rsvp/add-guest' element={<AddGuest />} />
           <Route 
             path='/rsvp/your-party/:guestId' 
             loader={ loadPartyGuest }
@@ -52,6 +51,7 @@ const router = createHashRouter(
 
       <Route path='/mng' element={<Rsvp />} errorElement={<ErrorPage />}>
         <Route index element={<GuestList />} />
+        <Route path='/mng/add-guest' element={<AddGuest />} />
       </Route>
     </>
   )

@@ -56,7 +56,8 @@ function AddGuest() {
         updateParties()
     }, [])
 
-    return (<>
+    return (
+    <div className="rsvpWrapper">
         <CssVarsProvider theme={rsvpTheme}>
             <h4>Add a party</h4>
             <form onSubmit={formikAddParty.handleSubmit}>
@@ -118,7 +119,8 @@ function AddGuest() {
                 <Button type='submit'>Add guest</Button>
             </form>
         </CssVarsProvider>
-    </>)
+    </div>
+    )
 }
 
 export default AddGuest
