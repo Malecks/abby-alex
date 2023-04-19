@@ -52,6 +52,7 @@ function GuestList() {
                         <th style={{width: '15%'}}>Entre</th>
                         <th style={{width: '8%'}}>Friday</th>
                         <th style={{width: '8%'}}>Sunday</th>
+                        <th style={{width: '15%'}}>Notes</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -69,6 +70,7 @@ function GuestList() {
                                 <td>{guest.entre}</td>
                                 <td>{attendingString(guest.fridayEvent)}</td>
                                 <td>{attendingString(guest.sundayEvent)}</td>
+                                <td>{guest.notes}</td>
                             </tr>
                         )
                     })}

@@ -17,6 +17,9 @@ return (
                 <h5>What do I need to cross the border into the USA ?</h5>
                 <p>You will need a valid passport! If you are borrowing a car, consider bringing a signed note from the owner. If you're borrowing a child, same deal (bring a note from the parent). If you are bringing pets, remember their up-to-date rabies vaccination records.</p>
 
+                <h5>Do you have a registry?</h5>
+                <p>We're so grateful to our guests for making their way to Ellicottville and sharing the weekend with us. Your presence is all the presents we need. However, if you feel so obliged to give a gift, consider helping us share an experience by contributing to our honeymoon fund. </p>
+
                 <h5>Who can help me with last-minute questions?</h5>
                 <p>Not us! Our wonderful wedding planner Katharine will be available for any day-of questions or quandaries. She can be reached at (716) 474–3318.</p>
             </section>
