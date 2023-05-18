@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react'
 import { getGuests } from '../rsvp/FirebaseActions'
 import { Link } from 'react-router-dom'
 import { Table } from '@mui/joy'
+import { CSVLink, CSVDownload } from 'react-csv'
 
 function GuestList() {
     const [guests, setGuests] = useState([])
@@ -38,9 +39,50 @@ function GuestList() {
                 return '-'
         }
     }
-    
+
+
+    function csvData() {
+        const guestsData = guests.map((guest) => {
+            return({
+                lastname: guest.last,
+                firstname: guest.first,
+                // title: "",
+                // suffix: "",
+                // streetAddress: "",
+                // addressLine2:"",
+                // city:"",
+                // state:"",
+                // zip:"",
+                // country:"",
+                // phone:"",
+                email: guest.email, 
+                group: guest.partyName, 
+                ceremony: attendingString(guest.ceremony), 
+                entre: guest.entre, 
+                fridayEvent: attendingString(guest.fridayEvent), 
+                sundayEvent: attendingString(guest.sundayEvent),
+                notes: guest.notes
+            })
+        })
+        console.log(guestsData)
+        return guestsData;
+      }
+
+      const headers = [
+        { label: "Last Name", key: "lastname" },
+        { label: "First Name", key: "firstname" },
+        { label: "Email", key: "email" },
+        { label: "Group", key: "group"},
+        { label: "Attending", key: "ceremony"},
+        { label: "Entre", key: "entre"},
+        { label: "Friday Event", key: "fridayEvent"},
+        { label: "Sunday Event", key: "sundayEvent"},
+        { label: "Notes", key: "notes"}
+      ];
+
     return (
         <>
+            <CSVLink data={csvData()} headers={headers}> Download CSV</CSVLink>
             <h3 style={{textAlign: 'center'}}>{"Attending: " + attending }</h3>
             <h5 style={{textAlign: 'center'}}>{"Invited: " + guests.length}</h5>
             <Table>
