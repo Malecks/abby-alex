@@ -16,7 +16,7 @@ const Schedule = () => {
                     <p><em>Garden formal, Transportation provided</em></p>
                 </section>
                 <section>
-                    <h4>Sunday, July 9th. 11am–2pm</h4>
+                    <h4>Sunday, July 9th. 11am–1pm</h4>
                     <h3>Sunday send-off</h3>
                     <p><em>The Chornous Pond • 6684 Poverty Hill Rd.</em></p>
                     <p><em>Swimsuit optional</em></p>

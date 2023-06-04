@@ -6,9 +6,7 @@ return (
             <section>
                 <h2>FAQ</h2>
                 <h5>Will there be transportation on Saturday?</h5>
-                <p>Yes. We have limited parking, and we want you to have a good time so please take advantage of the party shuttle!</p>
-                <p>The shuttle will be picking guests up from Holiday Valley and the village, and for guests staying in rentals between the village and the Chornous house the shuttle will stop at pick up points along Maple’s rd.</p>
-                <p> A detailed schedule of pick up and drop off times will be posted soon. Help us out and don’t wait for the last shuttle to the wedding - there will be drinks waiting for you!</p>
+                <p>Yes. We have limited parking, and we want you to have a good time so please take advantage of the party shuttle! The shuttle will be picking guests up from Holiday Valley and the village, and for guests staying in rentals between the village and the Chornous house the shuttle will stop at pick up points along Maple’s rd. A detailed schedule of pick up and drop off times will be posted soon. Help us out and don’t wait for the last shuttle to the wedding - there will be drinks waiting for you!</p>
 
                 <h5>Will there be food?</h5>
                 <p>Yes.</p>
