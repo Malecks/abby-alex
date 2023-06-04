@@ -11,6 +11,7 @@ const Accomodation = () => {
             <section>
                 <h2>Where to stay</h2>
                 <p>Mahalo for coming to our destination wedding! We're sorry we can't host everyone under one roof, but there are a number of great options nearby.</p>
+                <p>Be sure to call to book, and mention the Chornous-Mathers room block to get the best rate.</p>
 
                 <h5>The Party Shuttle</h5>
                 <p>A shuttle bus will be provided to and from the wedding on Saturday with pick-up points in <em>the village of Ellicottville</em> and at <em>Holiday Valley Ski Resort</em>. Please plan to have a good time and leave your cars at home! More details will be provided closer to the big day.</p>

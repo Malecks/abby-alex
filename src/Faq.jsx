@@ -5,6 +5,17 @@ return (
             <h4>Frequently asked questions</h4>
             <section>
                 <h2>FAQ</h2>
+                <h5>Will there be transportation on Saturday?</h5>
+                <p>Yes. We have limited parking, and we want you to have a good time so please take advantage of the party shuttle!</p>
+                <p>The shuttle will be picking guests up from Holiday Valley and the village, and for guests staying in rentals between the village and the Chornous house the shuttle will stop at pick up points along Maple’s rd.</p>
+                <p> A detailed schedule of pick up and drop off times will be posted soon. Help us out and don’t wait for the last shuttle to the wedding - there will be drinks waiting for you!</p>
+
+                <h5>Will there be food?</h5>
+                <p>Yes.</p>
+
+                <h5>How much food?</h5>
+                <p>There will be light bites at Friday’s welcome drinks, a full spread at the Saturday wedding, and grab and go brunch at Sunday’s send-off pond party. For restaurant recommendations check out our Ellicottville guide.</p>
+
                 <h5>What shoes should I wear?</h5>
                 <p>Ladies and  gents, be warned – we will be on grass and gravel, so leave the stilettos in the city or be prepared to get <em>~tipsy~</em>.</p>
 
