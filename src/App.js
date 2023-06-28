@@ -11,6 +11,7 @@ import {
 
 import './App.css'
 import Home from './Home'
+import Transportation from './Transportation'
 import Guide from './Guide'
 import Accomodation from './Accomodation'
 import House from './House'
@@ -33,6 +34,7 @@ const router = createHashRouter(
         <Route path='/guide' element={<Guide />} />
         <Route path='/house' element={<House />} />
         <Route path='/schedule' element={<Schedule />} />
+        <Route path='/transportation' element={<Transportation />} />
         <Route path='/faq' element={<Faq />} />
       </Route>
       

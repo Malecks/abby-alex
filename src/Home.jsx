@@ -19,6 +19,7 @@ const Home = () => {
         <nav>
           <ul>
             <li><NavLink to="/schedule" className={({ isActive }) => isActive ? 'active' : null }>Schedule</NavLink></li>
+            <li><NavLink to="/transportation" className={({ isActive }) => isActive ? 'active' : null }>Party bus</NavLink></li>
             <li><NavLink to="/accomodation" className={({ isActive }) => isActive ? 'active' : null }>Accomodation</NavLink></li>
             <li><NavLink to="/guide" className={({ isActive }) => isActive ? 'active' : null }>Guide</NavLink></li>
             <li><NavLink to="/house" className={({ isActive }) => isActive ? 'active' : null }>The House</NavLink></li>

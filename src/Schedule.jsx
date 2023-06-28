@@ -22,6 +22,7 @@ const Schedule = () => {
                     <p><em>Swimsuit optional</em></p>
                 </section>
             </div>
+            
         </div>
     )
 }
