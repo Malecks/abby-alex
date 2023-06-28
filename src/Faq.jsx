@@ -11,7 +11,7 @@ return (
                 <p>You will need a valid passport! If you are borrowing a car, consider bringing a signed note from the owner. If you're borrowing a child, same deal (bring a note from the parent). If you are bringing pets, remember their up-to-date rabies vaccination records.</p>
 
                 <h5>Will there be transportation on Saturday?</h5>
-                <p>Yes. <Link to="/transportation">Visit the transportation page</Link>. There will be no parking on Saturday so please take advantage of the party shuttle! Help us out and don't wait for the last shuttle to the wedding - there will be drinks waiting for you!</p>
+                <p>Yes. <Link to="/transportation">Visit the transportation page</Link>. There will be no parking on Saturday so please take advantage of the party shuttle! Help us out and don't wait for the last shuttle to the wedding - there will be drinks waiting for you! If you're not staying walking distance from a shuttle stop, consider parking at Holiday Valley and grabbing the shuttle to the house from there.</p>
 
                 <h5>What if I need a cab?</h5>
                 <p>The local cab company is Southern Tier Transportation (716-375-8294). And most excitingly, Uber and Lyft are here! There is usually one or two cars cruising around on weekends, so just be sure to give yourself lots of time to call.</p>
