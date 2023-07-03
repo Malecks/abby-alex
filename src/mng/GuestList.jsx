@@ -42,22 +42,35 @@ function GuestList() {
 
 
     function csvData() {
-        const guestsData = guests.map((guest) => {
-            return({
-                lastname: guest.last,
-                firstname: guest.first,
-                email: guest.email, 
-                group: guest.partyName, 
-                ceremony: attendingString(guest.ceremony), 
-                entre: guest.entre, 
-                fridayEvent: attendingString(guest.fridayEvent), 
-                sundayEvent: attendingString(guest.sundayEvent),
-                notes: guest.notes
-            })
-        })
-        console.log(guestsData)
+        // const emailSet = new Set(); // Auxiliary Set to track unique email addresses
+        const guestsData = guests
+          .map((guest) => {
+            return {
+              lastname: guest.last,
+              firstname: guest.first,
+              email: guest.email,
+              group: guest.partyName,
+              ceremony: guest.ceremony,
+              entre: guest.entre,
+              fridayEvent: attendingString(guest.fridayEvent),
+              sundayEvent: attendingString(guest.sundayEvent),
+              notes: guest.notes,
+            };
+          })
+        //   .filter((guest) => {
+        //     // Filter guests with duplicate email addresses
+        //     if (emailSet.has(guest.email)) {
+        //       return false; // Exclude guest if email is duplicate
+        //     } else {
+        //       emailSet.add(guest.email); // Add email to the set if it's unique
+        //       return true; // Include guest in the filtered result
+        //     }
+        //   })
+        //   .filter((guest) => guest.ceremony === "yes");
+      
+        console.log(guestsData);
         return guestsData;
-      }
+    }
 
       const headers = [
         { label: "Last Name", key: "lastname" },

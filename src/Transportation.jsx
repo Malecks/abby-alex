@@ -14,6 +14,7 @@ const Transportation = () => {
                     <ul>
                         <li>The Holiday Valley Inn (Ski hill)</li>
                         <li>The Wingate by Wyndham (The Village)</li>
+                        <li>27 Filmore Dr.</li>
                         <li>6417 Northwood Dr. (The Mathers House)</li>
                         <li>The Corner of Elk Creek Dr. and Maple's Rd.</li>
                     </ul>
